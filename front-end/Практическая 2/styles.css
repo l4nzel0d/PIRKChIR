@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@100..900&display=swap');
+
+
+h1 {
+    font-family: "Rubik Mono One", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+h2, h3 {
+    font-family: "Handjet", sans-serif;
+    font-optical-sizing: auto;
+    font-weight:  400;
+    font-style: normal;
+    font-variation-settings:
+      "ELGR" 1,
+      "ELSH" 2;
+  }
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: blanchedalmond;
+
+    
+    border-width: 2px;
+    border-color: brown;
+    border-style: ridge;
+    
+
+    transition: 0.5s;
+}
+
+header:hover  {
+    top: -10px;
+    background-color: bisque;
+}
+
+header:active {
+    background-color: aliceblue;
+}
+
+body {
+    background-color: beige;
+
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+
+}
+
+#links {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.link:visited {
+    color: forestgreen;
+    text-decoration: aqua;
+}
+
+
+section, aside  {
+    background-color: blanchedalmond;
+    border-radius: 10px;
+    border-width: 3px;
+    border-color: brown;
+    border-style: solid;
+    padding: 5px;
+    margin: 5px;
+
+    transition: 0.5s;
+}
+
+section:hover, aside:hover {
+    background-color: bisque;
+}
+

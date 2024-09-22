@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <title>Document</title>
+        <link rel="icon" href="logo.png" sizes="any" />
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div id="desktop-header">
+            <header id="header">
+                <img src="logo.png" width="80" style="margin: 10px" />
+                <nav>
+                    <ul id="links">
+                        <li><a class="link" href="#header">Шапка</a></li>
+                        <li><a class="link" href="#gallery">Изображения</a></li>
+                        <li><a class="link" href="#footer">Подвал</a></li>
+                    </ul>
+                </nav>
+            </header>
+        </div>
+
+        <div id="mobile-header">
+            <header id="header">
+                <div style="display: flex; flex-direction: row; align-items: center">
+                    <img src="logo.png" width="80" style="margin: 10px" />
+                    <div style="flex-grow: 1"></div>
+
+                    <input type="checkbox" id="chk1" style="display: none" />
+                    <label for="chk1">
+                        <img id="btn1" src="menu.svg" style="width: 50px" />
+                    </label>
+                    <!-- <img id="btn2" src="window-close.svg" style="width: 50px" /> -->
+                </div>
+
+                <div id="hover-header">
+                    <div></div>
+                    <nav>
+                        <ul id="links">
+                            <li><a class="link" href="#header">Шапка</a></li>
+                            <li><a class="link" href="#gallery">Изображения</a></li>
+                            <li><a class="link" href="#footer">Подвал</a></li>
+                        </ul>
+                    </nav>
+                    <div style="height: 500px"></div>
+                </div>
+            </header>
+        </div>
+
+        <main>
+            <div>
+                <section id="anima"></section>
+                <section id="gallery">
+                    <img src="2.png" />
+                    <img src="4.jpg" />
+                    <img src="11.jpg" />
+                    <img src="1.png" />
+                    <img src="8.jpg" />
+                    <img src="7.jpg" />
+                    <img src="3.jpg" />
+                    <img src="12.jpg" />
+                    <img src="9.jpg" />
+                    <img src="6.jpg" />
+                    <img src="5.png" />
+                    <img src="10.jpg" />
+                </section>
+            </div>
+        </main>
+
+        <footer id="footer">
+            <span>Контакнтые данные</span>
+            <adress>
+                <a href="tel:88005553535">88005553535</a>
+                <a href="mailto:88005553535">baran@tundex.com</a>
+            </adress>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+        <title>Document</title>
+        <link rel="icon" href="favicon.ico" sizes="any" />
+    </head>
+    <body>
+        <h1 id="h1">Добро пожаловать</h1>
+        <h2 id="h1">Это первая практическая по html</h2>
+        <h3>Здесь мы можем форматировать текст!</h3>
+        <p>Абзацами! Вот так с помощью тега &ltp&gt</p>
+        <p>
+            А ещё можно их раз-<br />
+            -рывать при помощи тега &ltbr&gt
+        </p>
+        <pre>
+А тег &ltpre&gt сохраняет всё форматирование текста:
+Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Corrupti odit quaerat velit iure totam,
+        fugiat similique omnis aliquid in ipsa temporibus laboriosam,
+maxime ex a sint dolorem maiores praesentium voluptatum!
+Nobis molestiae fugit temporibus voluptas ab aliquam placeat
+    cumque distinctio quisquam accusantium ad expedita,
+tempore adipisci assumenda hic, voluptate laborum.
+        </pre>
+
+        <b>Есть разные выделения</b>
+        <br />
+        <br />
+        <br />
+
+        <strong>Жирный</strong>
+        <i>Курсив</i>
+        <em>Акцентированный</em>
+        <u>Подчёркнутый</u>
+        <sub>Подстрочный</sub>
+        <sup>Надстрочный</sup>
+        <cite>Ссылка</cite>
+        <blockquote>Цитирование</blockquote>
+        <abbr>АББРИВЕАТУРА</abbr>
+
+        <br />
+        <br />
+        <br />
+        <a href="#h1">Это якорь на h1 </a>
+        <br />
+
+        <a href="#h2">А это на h2 </a>
+        <br />
+        <a href="https://google.com">Это ссылка на гугл </a>
+        <br />
+        <br />
+
+        <span>Это упорядоченный список (Моя любимая музыка)</span>
+        <ol type="I">
+            <li>Libera (Part I) - Saturnine Spheres</li>
+            <li>Libera (Part II) - Ascent of Burning Moths</li>
+            <li>Libera (Part II) - Ascent of Burning Moths</li>
+            <li>Urn (Part II) - As Embers Dance in Our Eyes</li>
+        </ol>
+        <br />
+        <span>Это вложенный маркированный список</span>
+        <ol>
+            <li>
+                <ul type="disc">
+                    <li>Один</li>
+                    <li>Два</li>
+                    <li>Три</li>
+                    <li>Четыре</li>
+                </ul>
+            </li>
+            <li>Пять</li>
+            <li>
+                <ul>
+                    <li>Шесть</li>
+                    <li>Семь</li>
+                    <ul type="square">
+                        <li>Восемь</li>
+                    </ul>
+                </ul>
+            </li>
+            <li>Девять</li>
+            <li>Десять</li>
+        </ol>
+
+        <br />
+        <span> Ниже список описаний </span>
+        <dl>
+            <dt>Яблоко</dt>
+            <dd>
+                - Сочный плод яблони, который употребляется в пищу в свежем и запеченном виде, служит сырьём в кулинарии
+                и для приготовления напитков.
+            </dd>
+            <dt>Груша</dt>
+            <dd>- Род плодовых и декоративных деревьев и кустарников семейства розовые (Rosaceae), а также их плод.</dd>
+            <dd>- Слово «груша» в русских письменных источниках встречается с XII века в форме хруша</dd>
+            <dt>Вишня</dt>
+            <dd>- Подрод растений рода Слива семейства Розовые.</dd>
+            <dd>- Общий вид цветущего взрослого растения</dd>
+            <dt>Виноград</dt>
+            <dd>
+                - Плоды винограда культурного и некоторых других растений рода Виноград, в зрелом виде представляющие
+                собой сладкие ягоды. Ценный пищевой продукт и сырьё для виноделия.
+            </dd>
+            <dt>Слива</dt>
+            <dd>
+                - Род растений семейства Розовые. Включает около 400 видов, распространённых, главным образом, в
+                северных умеренных областях земного шара. Многие представители рода — широко известные плодовые
+                культуры. Слива - также плоды некоторых видов рода, например, сливы домашней и сливы китайской.
+            </dd>
+        </dl>
+
+        <br />
+
+        <span> Это картинка котика!!! </span>
+        <br />
+        <a href="https://cdn.britannica.com/36/234736-050-4AC5B6D5/Scottish-fold-cat.jpg">
+            <img src="https://cdn.britannica.com/36/234736-050-4AC5B6D5/Scottish-fold-cat.jpg" width="500" />
+        </a>
+        <br />
+
+        <span> А ниже карта Австралли где можно тыкнуть на три региона</span>
+        <!-- Картинку я сгенерил на сайте http://www.image-map.net/ -->
+        <img src="australia-map-provinces-0.jpg" usemap="#image-map" />
+
+        <map name="image-map">
+            <area
+                target=""
+                alt="Западная Австралия"
+                title="Западная Австралия"
+                href="https://en.wikipedia.org/wiki/Western_Australia"
+                coords="792,1567,107,539"
+                shape="rect"
+            />
+            <area
+                target=""
+                alt="Северная Австралия"
+                title="Северная Австралия"
+                href="https://en.wikipedia.org/wiki/Northern_Territory"
+                coords="755,479,1179,1083"
+                shape="rect"
+            />
+            <area
+                target=""
+                alt="Квинсленд"
+                title="Квинсленд"
+                href="https://en.wikipedia.org/wiki/Queensland"
+                coords="1273,1205,1796,1208,1384,396,1183,645,1179,1069,1277,1080"
+                shape="poly"
+            />
+        </map>
+    </body>
+    <footer>
+        <span>Контакнтые данные</span>
+        <a href="tel:88005553535">88005553535</a>
+        <a href="mailto:88005553535">baran@tundex.com</a>
+    </footer>
+</html>

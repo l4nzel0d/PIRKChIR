@@ -1,0 +1,165 @@
+header 
+{
+    background-color: blanchedalmond;
+    margin: 0rem 0rem 1rem 0rem;
+    padding: 0.1rem;
+    color: brown;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+    width: 100%;
+    z-index: 10;
+}
+
+#up-button
+{
+    position: fixed;
+    right: 3%;
+    bottom: 3%;
+    height: 5rem;
+}
+
+html 
+{
+	scroll-behavior: smooth;
+}
+
+header img
+{
+    position: relative;
+}
+
+header nav
+{
+    position: relative;
+}
+
+h2 + ul
+{
+    color: #37f312;
+}
+
+
+body
+{
+    background-color: whitesmoke;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr; 
+    gap: 20px; 
+}
+
+aside {
+    background-color: #ffb9b9; 
+    padding: 10px 25px;
+    border: 4px dashed #ccc;
+    position: relative;
+}
+
+.screenshots-container
+
+.below-aside-button
+{
+    position: absolute;
+    top: 97%;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 3rem;
+    width: 70%;
+}
+
+aside dl dd
+{
+    text-decoration: underline;
+}
+
+.roman_list li ul li
+{
+    font-style: italic;
+}
+
+aside dt
+{
+    font-weight: bolder;
+}
+
+article {
+    border: 2px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Roboto', sans-serif;
+    color: #004386; 
+}
+
+h1
+{
+    font-variant: small-caps;
+}
+
+h2
+{
+    font-weight: 900;
+}
+
+h3
+{
+    font-weight: 700;
+}
+
+a
+{
+    text-decoration: none;
+}
+
+#article1
+{
+    display: block;
+}
+
+#article2 section:nth-of-type(1) > p > a
+{
+    color: #a812f3;
+}
+
+#article2 section:nth-of-type(1) > p > a:hover
+{
+    color: #8df94a;
+    font-style: italic;
+}
+
+#article2 section:nth-of-type(1) > p > a:active
+{
+    color: rgb(0, 34, 255);
+}
+
+#article2 section:nth-of-type(1) > p > a:visited
+{
+    color: red;
+}
+
+footer h2
+{
+    color: whitesmoke;
+}
+
+footer a {
+    color: #f39c12;
+}
+
+footer a:hover {
+    color: #e67e22;
+}
+
