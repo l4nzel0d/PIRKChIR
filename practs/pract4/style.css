@@ -1,0 +1,75 @@
+form > input
+{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.forms-and-stuff
+{
+    position: relative;
+    margin: 3rem;
+    background-color: aquamarine;
+    padding: 1rem;
+}
+
+.forms-and-stuff:hover
+{
+    box-shadow: 0 0 1rem .5rem rgb(11, 160, 110);
+}
+
+
+
+.big-button
+{
+    font-size: 3rem;
+    text-align: center;
+    padding-inline: 15rem;
+    background-color: rgb(200, 0, 0);
+    color: white;
+    text-transform: uppercase;
+    margin-block: 2rem;
+}
+.big-button:hover
+{
+    background-color: rgb(170,0,0);
+}
+
+.big-button:active
+{
+    box-shadow: 0 0 .1rem 0.5rem rgb(255, 0, 0);
+    background-color: rgb(109, 0, 0);
+}
+
+input[type="radio"]:checked + label {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+input:focus
+{
+    background-color: rgb(255, 193, 193);
+}
+
+select:focus
+{
+    background-color: ivory;
+}
+
+option
+{
+    font-style: italic;
+}
+
+::placeholder
+{
+    font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.maps-and-videos
+{
+    border-style: double;
+    margin: 3rem;
+    background-color: antiquewhite;
+}

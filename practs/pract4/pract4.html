@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pract 4</title>
+</head>
+<body>
+    <main>
+        <div class="forms-and-stuff">
+            <form method="get">
+
+                <label for="name">First and Last name:</label>
+                <input type="text" name="name" id="name" autofocus pattern="^[A-Z][a-z]+ [A-Z][a-z]+$" placeholder="John Doe">
+            
+                <label for="telephone">Telephone:</label>
+                <input type="tel" name="telephone" id="telephone">
+                
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+                
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+                
+                <label for="file">Submit file:</label>
+                <input type="file" name="file" id="file">
+                
+                <div>
+                    <label for="accept-terms">Accept terms:</label>
+                    <br>
+                    <input type="checkbox" name="accept_terms" id="accept-terms" required>
+                    <label>I accept terms and conditions</label>
+                </div>
+
+                <div id="gender-radio-group">
+                    <p><b>Select your gender:</b></p>
+                    <input type="radio" name="gender" id="male" value="male">
+                    <label for="male">Male</label>
+                    <br>
+                    <input type="radio" name="gender" id="female" value="female">
+                    <label for="female">Female</label>
+                    <br>
+                    <input type="radio" name="gender" id="non-binary" value="non-binary">
+                    <label for="non-binary">Non-binary</label>
+                    <br>
+                    <input type="radio" name="gender" id="prefer-not-to-answer" value="prefer not to answer" checked>
+                    <label for="prefer-not-to-answer">Prefer not to answer</label>
+                </div>
+
+                <input type="submit" name="submit">
+
+                <input type="datetime-local"
+                name="appointment"
+                min="2024-09-01T00:00"
+                max="2024-10-01T00:00">
+
+                <button class="big-button" type="button">Launch into space!</button>
+
+                <label id="text-area">Write a joke</label>
+                <textarea id="text-area" 
+                cols="100" 
+                rows="5" 
+                maxlength="2000" 
+                minlength="5" 
+                placeholder="Start here..." required></textarea>
+
+                <fieldset>
+                    <legend>Choose your RPG class</legend>
+                    <input type="radio" id="knight" name="RPG-class" value="knight">
+                    <label for="knight">Knight</label><br>
+
+                    <input type="radio" id="wizard" name="RPG-class" value="wizard">
+                    <label for="wizard">Wizard</label><br>
+
+                    <input type="radio" id="orc" name="RPG-class" value="orc">
+                    <label for="orc">Orc</label><br>
+                </fieldset>
+                
+                <label for="pet-select">Choose a pet:</label>
+                <select name="pets" id="pet-select" required multiple size="7">
+                    <option value="">--Please choose an option--</option>
+                    <option value="dog">Dog</option>
+                    <option value="cat">Cat</option>
+                    <option value="hamster">Hamster</option>
+                    <option value="parrot">Parrot</option>
+                    <option value="spider">Spider</option>
+                    <option value="goldfish">Goldfish</option>
+                </select>
+
+            </form>
+        </div>
+        <div class="maps-and-videos">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7353.68165194489!2d37.47572045784609!3d55.66594831717428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46b54dc1d23b51c3%3A0x74763ed59c81ccb6!2sRtu%20Mirea!5e0!3m2!1sen!2sru!4v1727011019296!5m2!1sen!2sru" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        <video controls width="560">
+                <source src="PIXAR.mp4" type="video/mp4">
+            </video>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bNJW113tbKk?si=XrMK5MZ4L74Elxm9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </main>
+</body>
+</html>
