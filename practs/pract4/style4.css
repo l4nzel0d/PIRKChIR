@@ -21,6 +21,7 @@ form > input
 
 .big-button
 {
+    display: block;
     font-size: 3rem;
     text-align: center;
     padding-inline: 15rem;
