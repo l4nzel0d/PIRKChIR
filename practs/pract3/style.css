@@ -11,6 +11,28 @@ header
     z-index: 10;
 }
 
+header nav
+{
+    border:#87582e;
+    border-style: double;
+    border-radius: 10%;
+    border-width: 0.3rem;
+}
+
+header nav ul
+{
+    display: inline-flex;
+    width: 100%;
+    justify-content: center;
+    gap: 4rem;
+    list-style: none;
+}
+
+header nav ul li a
+{
+    text-decoration: underline;
+}
+
 #up-button
 {
     position: fixed;
@@ -22,6 +44,7 @@ header
 html 
 {
 	scroll-behavior: smooth;
+    scroll-padding-top: 200px;
 }
 
 header img
@@ -59,6 +82,17 @@ aside {
 }
 
 .screenshots-container
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    gap: 0rem;
+}
+
+.screenshots-container img
+{
+    height: 10rem;
+}
 
 .below-aside-button
 {
@@ -68,6 +102,19 @@ aside {
     transform: translateX(-50%);
     height: 3rem;
     width: 70%;
+}
+
+#article1_image
+{
+    height: 15rem;
+    margin-right: 1rem;
+    float: left;
+}
+
+#aside_image
+{
+    height: 7rem;
+    float: right;
 }
 
 aside dl dd
@@ -117,11 +164,6 @@ h2
 h3
 {
     font-weight: 700;
-}
-
-a
-{
-    text-decoration: none;
 }
 
 #article1
