@@ -1,6 +1,6 @@
 header 
 {
-    background-color: blanchedalmond;
+    background-color: rgb(228, 214, 198);
     margin: 0rem 0rem 1rem 0rem;
     padding: 0.1rem;
     color: brown;
@@ -81,7 +81,7 @@ aside {
     position: relative;
 }
 
-.screenshots-container
+/* .screenshots-container
 {
     display: flex;
     flex-wrap: wrap;
@@ -92,7 +92,7 @@ aside {
 .screenshots-container img
 {
     height: 10rem;
-}
+} */
 
 .below-aside-button
 {
@@ -111,9 +111,9 @@ aside {
     float: left;
 }
 
-#aside_image
+#right-float-img
 {
-    height: 7rem;
+    height: 15rem;
     float: right;
 }
 
