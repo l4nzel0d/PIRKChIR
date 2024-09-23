@@ -14,7 +14,6 @@ header, main, footer
 {
     width: 90%;
     margin: 1rem auto;
-    
 }
 
 header {
@@ -66,6 +65,7 @@ main
 {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
     gap: 1rem;
 }
 
@@ -85,18 +85,41 @@ article
     border-radius: 8px;
 }
 
+.movieshots-gallery
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .movieshots-gallery img
 {
-    height: 10rem;
+    height: 15rem
 }
+
 
 aside
 {
-    flex: 0 0 30vw;
+    flex: 0 0 30%;
     padding: 1rem 2rem;
     background-color: white;
     border: 2px solid lightblue;
     border-radius: 8px;
+}
+
+.aside-gallery
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: start;
+    row-gap: 1rem;
+}
+
+.aside-gallery img
+{
+    width: 10rem;
 }
 
 footer
@@ -105,6 +128,19 @@ footer
     background-color: white;
     border: 2px solid lightblue;
     border-radius: 8px;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid lightblue;
+    padding-bottom: 0.5rem;
+    line-height: 1.2;
 }
 
 @media (max-width: 800px)
