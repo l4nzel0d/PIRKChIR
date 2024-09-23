@@ -97,6 +97,10 @@ article
     height: 15rem
 }
 
+#alice-gallery img
+{
+    height: 20rem;
+}
 
 aside
 {
@@ -143,7 +147,7 @@ h2 {
     line-height: 1.2;
 }
 
-@media (max-width: 800px)
+@media (max-width: 900px)
 {
     main
     {
