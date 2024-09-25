@@ -81,18 +81,18 @@ aside {
     position: relative;
 }
 
-/* .screenshots-container
+.screenshots-container
 {
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: center;
     gap: 0rem;
 }
 
 .screenshots-container img
 {
     height: 10rem;
-} */
+}
 
 .below-aside-button
 {

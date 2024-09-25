@@ -4,6 +4,10 @@
     box-sizing: border-box; 
 }
 
+html
+{
+    scroll-behavior: smooth;
+}
 
 :root
 {
@@ -48,7 +52,7 @@ header {
     --lines-color: #333;
     --x-color: rgb(255, 0, 0);
     --animation-timing: 200ms ease-in-out;
-    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2)
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
 }
 
 .hamburger-menu::before,
@@ -70,6 +74,8 @@ header {
 
 .hamburger-menu
 {
+    position: fixed;
+    right: 50px;
     --x-width: calc(var(--hamburger-height) * 1.41421);
     display: flex;
     flex-direction: column;
