@@ -1,0 +1,154 @@
+:root {
+    --primary-color: #b612fd;
+    --secondary-color: #ffffff;
+    --notification-block-width: 250px;
+    --notification-block-border-radius: 15px;
+    --list-appearing-timing: 1s;
+    --notification-circle-radius: 25px;
+    --bell-icon-width: 24px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #20232a;
+    /* background-color: #ffffff; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.dropdown {
+    display: inline-block;
+    position: fixed;
+    right: 8vw;
+    top: 5vh;
+}
+
+.notification-icon {
+    z-index: 20;
+    position: relative;
+    width: calc(2*var(--notification-circle-radius));
+    height: calc(2*var(--notification-circle-radius));
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: left;
+    padding-left: calc(var(--notification-circle-radius) - var(--bell-icon-width)/2);
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all var(--list-appearing-timing) ease-in-out;
+}
+
+.dropdown:hover .notification-icon{
+    background-color: var(--primary-color);
+    border-radius: 15px 15px 0px 0px;
+    padding-left: 2vw;
+    transition: all var(--list-appearing-timing) ease-in-out;
+}
+
+.bell-icon {
+    position: relative;
+    left: 0px;
+    width: var(--bell-icon-width);
+    fill: #cecece;
+}
+
+.notification-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 8px;
+    font-size: 12px;
+}
+
+.dropdown .content {
+    display: flex; 
+    visibility: hidden;
+    opacity: 0;
+    width: calc(2*var(--notification-circle-radius));
+    padding: 10px 0px;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: absolute;
+    z-index: 1;
+    top: 0px;
+    padding-top: calc(2*var(--notification-circle-radius) + 10px);
+    background-color: #ffffff;
+    border-radius: 100px 100px 15px 15px / 40px 40px 15px 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all var(--list-appearing-timing) ease-in-out;
+}
+.dropdown:hover .content {
+    visibility: visible;
+    opacity: 1;
+    border-radius: 15px;
+    transition: all var(--list-appearing-timing) ease-in-out;
+}
+
+.dropdown .notification-item {
+    z-index: 2;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 10px 15px; /* Add some padding for a better look */
+    border-radius: 10px; /* Round corners */
+    background-color: #ffffff; /* Default background color */
+    transition: background-color 0.3s; /* Smooth transition */
+    counter-increment: item; /* Increment the counter */
+}
+
+
+
+
+.dropdown:hover .notification-icon, 
+.dropdown:hover .content {
+    width: var(--notification-block-width);
+    margin: 0px;
+}
+
+.dropdown:hover .bell-icon{
+    fill: #ffffff;
+}
+
+
+.dropdown .notification-item::before {
+    content: counter(item); /* Add numbering */
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: bold; /* Make numbers bold */
+    display: inline-block; /* Ensure it behaves like a block for width/height */
+    min-width: 24px;
+    min-height: 24px;
+    width: 24px; /* Set width */
+    height: 24px; /* Set height (same as width for a perfect circle) */
+    text-align: center; /* Center the text inside the circle */
+    line-height: 24px; /* Align the text vertically */
+    border-radius: 50%; /* Make it circular */
+    margin-right: 10px; /* Add space between the circle and the text */
+}
+
+
+.dropdown .notification-item:hover {
+    background-color: var(--primary-color); /* Optional: change background on hover */
+    color: var(--secondary-color); /* Optional: change text color on hover */
+    transform: scale(1.2); /* Scale the item to 110% of its original size */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown .notification-item:hover::before
+{
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
