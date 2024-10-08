@@ -4,6 +4,7 @@
     --notification-block-width: 250px;
     --notification-block-border-radius: 15px;
     --list-appearing-timing: .5s;
+    --card-overlay-appearing-timing: .3s;
     --notification-circle-radius: 25px;
     --bell-icon-width: 24px;
 }
@@ -177,8 +178,6 @@ body {
 
 /* Button one */
 .glow-on-hover {
-    width: 220px;
-    height: 50px;
     border: none;
     outline: none;
     color: #fff;
@@ -186,6 +185,7 @@ body {
     cursor: pointer;
     position: relative;
     z-index: 0;
+    padding: 1rem 1rem;
     border-radius: 10px;
 }
 
@@ -340,6 +340,8 @@ body {
   }
   
 
+
+/* CARD GALLERY SECTION */
   
 .gallery {
     position: relative;
@@ -363,9 +365,6 @@ body {
     height: 100%;
 }
 
-
-
-
 .card::before {
     content: ""; /* Required for the pseudo-element to display */
     position: absolute; /* Absolute positioning */
@@ -383,17 +382,6 @@ body {
     transition: all 0.3s ease; /* Transition effect */
 }
 
-/* Example hover effect */
-.card:hover::before {
-    visibility: visible;
-    opacity: 1;
-}
-
-.card:not(:hover)::before {
-    visibility: hidden;
-    opacity: 0; /* Set to 0 when not hovered */
-    transition: opacity .3s ease; /* Add delay for disappearing */
-}
 
 .card .card-overlay-info {
     z-index: 2;
@@ -402,19 +390,18 @@ body {
     bottom: 0rem;
     padding: 1rem 5% 5% 5%;
     width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease .1s;
 }
-
-.card:hover .card-overlay-info {
+/* Example hover effect */
+.card:hover::before, .card:hover .card-overlay-info {
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.3s ease, visibility 0s;
 }
 
-.card:not(:hover) .card-overlay-info {
+.card:not(:hover)::before, .card:not(:hover) .card-overlay-info {
     visibility: hidden;
     opacity: 0; /* Set to 0 when not hovered */
-    transition: opacity 0.3s ease; /* Add delay for disappearing */
+    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Add delay for disappearing */
 }
 
 .card-title, .card-description {
@@ -428,7 +415,6 @@ body {
     margin-top: 0.5rem;
     margin-bottom: 0.2rem;
     font-weight:bold;
-    height: 10%;
     font-size: 1.1rem;
     padding: .5rem 1rem;
     border: none;
@@ -436,7 +422,7 @@ body {
 }
 
 
-
+/* VIDEO SECTION */
 
 .video-container {
     position: relative;
@@ -475,4 +461,26 @@ body {
 .video-container:not(:hover) .video-overlay-info {
     opacity: 0;
     transition: opacity 0.3s ease, visibility 0s 0.3s; /* Visibility hidden after opacity when disappearing */
+}
+
+@media (max-width: 900px) {
+    .buttons-container {
+        flex-direction: column;
+        align-items: center;
+    }  
+
+    .gallery {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .card {
+        width: 50%;
+    }
+
+    .buttons-container button{
+        font-size: 2rem;
+        padding: 2rem 2rem;
+    }
 }
