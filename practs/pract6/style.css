@@ -4,7 +4,7 @@
     --notification-block-width: 250px;
     --notification-block-border-radius: 15px;
     --list-appearing-timing: .5s;
-    --card-overlay-appearing-timing: .3s;
+    --overlay-appearing-timing: .6s;
     --notification-circle-radius: 25px;
     --bell-icon-width: 24px;
 }
@@ -113,7 +113,7 @@ body {
     padding: 10px 15px; /* Add some padding for a better look */
     border-radius: 10px; /* Round corners */
     background-color: #ffffff; /* Default background color */
-    transition: background-color 0.3s; /* Smooth transition */
+    transition: background-color 0.4s; /* Smooth transition */
     counter-increment: item; /* Increment the counter */
 }
 
@@ -380,7 +380,7 @@ body {
         rgba(255, 0, 0, 0) 100%/* Fade to transparent at the top */
     ); /* Example background */
     z-index: 1; /* Layer above the card content */
-    transition: all 0.3s ease; /* Transition effect */
+    transition: all var(--overlay-appearing-timing) ease; /* Transition effect */
 }
 
 
@@ -396,13 +396,13 @@ body {
 .card:hover::before, .card:hover .card-overlay-info {
     visibility: visible;
     opacity: 1;
-    transition: opacity 0.3s ease, visibility 0s;
+    transition: opacity var(--overlay-appearing-timing) ease, visibility 0s;
 }
 
 .card:not(:hover)::before, .card:not(:hover) .card-overlay-info {
     visibility: hidden;
     opacity: 0; /* Set to 0 when not hovered */
-    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Add delay for disappearing */
+    transition: opacity var(--overlay-appearing-timing) ease, visibility 0s var(--overlay-appearing-timing); /* Add delay for disappearing */
 }
 
 .card-title, .card-description {
@@ -455,13 +455,13 @@ body {
 .video-container:hover .video-overlay-info {
     visibility: visible; /* Immediate visibility on hover */
     opacity: 1;
-    transition: opacity 0.3s ease, visibility 0s; /* Visibility before opacity when appearing */
+    transition: opacity var(--overlay-appearing-timing) ease, visibility 0s; /* Visibility before opacity when appearing */
 }
 
 .video-container:not(:hover)::before,
 .video-container:not(:hover) .video-overlay-info {
     opacity: 0;
-    transition: opacity 0.3s ease, visibility 0s 0.3s; /* Visibility hidden after opacity when disappearing */
+    transition: opacity var(--overlay-appearing-timing) ease, visibility 0s var(--overlay-appearing-timing); /* Visibility hidden after opacity when disappearing */
 }
 
 @media (max-width: 900px) {
