@@ -18,6 +18,13 @@ body {
     align-items: center;
 }
 
+main {
+    margin-top: 10rem;
+    width: 100%;
+}
+
+/* ICONS */
+
 footer {
     display: flex;
     width: 100%;
@@ -47,9 +54,9 @@ footer {
 
     position: relative;
 
-    z-index: 0;
-
     transition: transform var(--icon-gradient-animation-timing) ease;
+    
+    z-index: 0;
 }
 
 .icon {
@@ -90,10 +97,26 @@ footer {
 
 }
 
+.icon-container:hover {
+    transform: translateY(-20%);
+}
+
 .icon-container:hover::after {
     transform: translateY(100%);
 }
 
-.icon-container:hover {
-    transform: translateY(-20%);
+/* CARDS */
+.card-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#card1 {
+    --var
+}
+
+.card {
+    width: 10rem;
+    height: 25rem;
 }
