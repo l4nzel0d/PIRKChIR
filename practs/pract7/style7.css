@@ -15,6 +15,7 @@
     --card-skew-timing: .3s;
     --login-box-height: 25rem;
     --login-box-width: 25rem;
+    --colorful-card-width: 200px;
 }
 
 body {
@@ -297,4 +298,110 @@ footer {
 .login-links-block a {
     text-decoration: none;
     color: #ffa600;
+}
+
+
+/* COLORFUL CARDS */
+
+#colorful-card1 {
+    --top-color: #ffc107;
+}
+
+#colorful-card2 {
+    --top-color: #e91e63;
+}
+
+#colorful-card3 {
+    --top-color: #9c27b0;
+}
+
+.colorful-card-section
+{
+    margin-top: 10rem;
+    background: linear-gradient(90deg, rgba(255,226,0,1) 0%, rgb(144, 0, 167) 100%);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.colorful-card-container {
+    display: flex;
+    gap: 20px;
+}
+
+.colorful-card {
+    width: var(--colorful-card-width);
+    height: 300px;
+    background-color: white;    
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.colorful-card::after {
+    content: "";
+    position: absolute;
+    top: calc(-.65*var(--colorful-card-width));
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(1.3*var(--colorful-card-width));
+    height: calc(1.3*var(--colorful-card-width));
+    border-radius: 50%;
+    background-color: var(--top-color);
+    z-index: 2; 
+}
+
+
+.colorful-card-content {
+    text-align: center;
+}
+
+.colorful-card h2 {
+    position: relative;
+    font-size: 2.5rem;
+    color: white;
+    z-index: 3;
+    margin-bottom: 6rem;
+}
+
+.colorful-card p {
+    font-size: 0.9rem;
+    color: #333;
+    margin: 10px 0;
+    padding: 0 10px;
+}
+
+.colorful-card button {
+    position: relative;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    background-color: var(--top-color);
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.colorful-card button:hover {
+    transform: scale(1.05);
+}
+
+
+.colorful-card-container:hover .colorful-card {
+    filter: blur(5px);
+    transform: scale(0.9);
+}
+
+.colorful-card-container .colorful-card:hover {
+    filter: blur(0);
+    transform: scale(1.05);
+    z-index: 1;
 }
