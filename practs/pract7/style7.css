@@ -16,11 +16,13 @@
     --login-box-height: 25rem;
     --login-box-width: 25rem;
     --colorful-card-width: 200px;
-    --border-light-card-width: 270px;
+    --border-light-card-width: 28vw;
+    --border-light-card-max-width: 270px;
     --border-light-card-main-color: #0c002b;
     --border-light-card-secondary-color: #251a41;
-    --border-light-card-moving-edge-color: #1675f8;
+    --border-light-card-moving-edge-color: #006aff;
     --border-light-card-edge-thickness: -5px;
+    --border-light-card-transition-timing: .5s;
 }
 
 body {
@@ -429,29 +431,78 @@ footer {
 }
 
 .border-light-card-container {
+    width: 100%;
     display: flex;
-    gap: 30px;
+    justify-content: space-around;
 }
 
 .border-light-card-content {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     text-align: center;
     color: white;
-    z-index: 2;
+    z-index: 3;
+}
+
+.border-light-card-content p,
+.border-light-card-content h2 {
+    z-index: inherit;
+}
+
+.border-light-card-button {
+    width: max-content;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: .5rem 1.5rem;
+}
+
+.border-light-card-button:hover {
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .border-light-card .card-number {
     position: absolute;
+    color:var(--border-light-card-moving-edge-color);
+    font-size: 4rem;
+    top: 0;
+    right: 10%;
+    z-index: 2;
+    transition: transform var(--border-light-card-transition-timing) ease-in-out;
+} 
+
+.border-light-card-container:hover .border-light-card:not(:hover) .card-number,
+.border-light-card-container:not(:hover) .card-number {
+    transform: translateY(100%);
+    opacity: .4;
+}
+
+.border-light-card-wrapper {
+    box-shadow: 0px 3px 10px 10px rgba(0, 0, 0, .3);
+    transition: opacity var(--border-light-card-transition-timing) ease;
+}
+
+.border-light-card::after {
+    transition: opacity calc(var(--border-light-card-transition-timing) + .6s) ease;
+}
+
+.border-light-card-wrapper:not(:hover) .border-light-card::after {
+    opacity: 0;
 }
 
 .border-light-card {
     width: var(--border-light-card-width);
+    max-width: var(--border-light-card-max-width);
     height: 360px;
     background: linear-gradient(
         to right,
         var(--border-light-card-secondary-color) 0% 50%,
         var(--border-light-card-main-color) 50% 100%
     );    
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -482,6 +533,18 @@ footer {
 .border-light-card::before {
     background: var(--border-light-card-main-color);
     z-index: -2;
+}
+
+.border-light-card-container:not(:hover) .border-light-card-wrapper {
+    opacity: .7;
+}
+
+.border-light-card-container:hover .border-light-card-wrapper:not(:hover) {
+    opacity: .3;
+}
+
+.border-light-card-wrapper:hover {
+    opacity: 1;
 }
 
 
