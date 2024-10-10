@@ -24,6 +24,7 @@ main {
     margin: 5rem 1rem;
 }
 
+
 .contact-container {
     width: 100%;
     display: flex;
@@ -32,7 +33,7 @@ main {
     align-items: center;
     background-color: var(--form-box-color);
     color: white;
-    padding: 1rem;
+    padding: 1rem 2rem;
     gap: 2rem;
 }
 
@@ -40,13 +41,13 @@ main {
     font-weight: 600;
 }
 
-.inputs-section {
+.inputs-grid {
     width: 100%;
     display: grid;
     grid-template: 1fr 1fr 1fr / 1fr 1fr;
     grid-template-areas: 
         "name surname"
-        "name surname"
+        "email tel"
         "message message";
     gap: 3rem;
 }
@@ -55,6 +56,10 @@ main {
     grid-area: message;
 }
 
+
+
+
+
 .input-container {
     background: transparent;
     height: 2rem;
@@ -62,27 +67,47 @@ main {
     position: relative;
 }
 
-.input-container label {
-    position: absolute;
-    font-weight: 600;
-}
 
 .input-container input {
     width: 100%;
 }
 
-.input-container::before {
-    content: "";
-
-}
 
 .input-box {
+    height: 100%;
+    position: relative;
     background: transparent;
     border: none;
     outline: none;
+    color:white;
+    z-index:2;
+    padding: .5rem;
 }
 
-.input-container::after {
+.input-box:hover, .input-box:focus {
+    background: var(--accent-color);
+}
+
+
+.input-container label {
+    position: absolute;
+    font-weight: 600;
+    top: 0%;
+    left: 0%;
+    z-index: 5;
+    pointer-events: none;
+    transition: all var(--hover-timing) ease;
+}
+
+.input-box:not(:placeholder-shown) + label,
+.input-box:hover + label,
+.input-box:focus + label{
+    top: -1rem;
+    left: -.8rem;
+    font-size: .7rem;
+}
+
+.input-container::before {
     content: "";
     position: absolute;
     bottom: 0;
@@ -90,12 +115,20 @@ main {
     background-color: var(--accent-color);
     width: 100%;
     height: 2px;
+    z-index: 0;
+    pointer-events: none;
+    transition: height var(--hover-timing) linear;
 }
 
+
+
+
+
 .input-box::placeholder {
-    position: absolute;
-    right: 50%;
+    visibility: hidden;
 }
+
+
 
 .button {
     align-self: flex-start;
@@ -109,4 +142,22 @@ main {
     background-color: var(--pressed-color);
 }
 
+@media (max-width: 712px) {
+    .inputs-grid {
+        width: 100%;
+        display: grid;
+        grid-template: repeat(5, 1fr) / 1fr;
+        grid-template-areas: none;
+        gap: 1.5rem;
+    }
 
+    .input-container {
+        grid-column: span 1;
+        grid-row: span 1;
+        grid-area: unset;
+    }
+
+    #message {
+        grid-area: unset;
+    }
+}
