@@ -190,7 +190,7 @@ footer {
 
 .card {
     position: relative;
-    width: 50%;
+    width: 60%;
     height: 25rem;
     background: linear-gradient(135deg, var(--color1), var(--color2));
     border-radius: .5rem;
