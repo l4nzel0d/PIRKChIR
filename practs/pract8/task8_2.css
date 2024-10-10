@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --back-color: #222831;
+    --card-color: #333333;
+    --hover-color: #e91e63;
+    --lorem-ipsum: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+    --hover-timing: .3s;
+}
+
+body {
+    background-color: var(--back-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 5rem;
+}
+
+.grid-container {
+    width: 95%;
+    height: 80vh;
+    display: grid;
+    grid-template: 5fr 5fr 4fr/ repeat(4, 1fr);
+    gap: 10px;
+    grid-template-areas:
+        "pc pc www gears"
+        "tag chip www binary"
+        "tag phone phone phone"
+}
+
+.grid-item {
+    background-color: var(--card-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1.5rem;
+    gap: .4rem;
+    transition: background-color var(--hover-timing) ease;
+}
+
+
+.grid-item:hover {
+    background-color: #e91e63;
+}
+
+.grid-item .icon-container {
+    width: 5rem;
+    display: flex;
+}
+
+.icon-container img {
+    width: 100%;
+    object-fit: contain;
+    filter: invert(1);
+}
+
+.grid-item p:after {
+    content: var(--lorem-ipsum);
+    color: white;
+}
+
+#pc {
+    grid-area: pc;
+}
+
+#tag {
+    grid-area: tag;
+}
+
+#chip {
+    grid-area: chip;
+}
+
+#www {
+    grid-area: www;
+}
+
+#gears {
+    grid-area: gears;
+}
+
+#binary {
+    grid-area: binary;
+}
+
+#phone {
+    grid-area: phone;
+}
