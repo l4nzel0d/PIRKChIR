@@ -87,7 +87,6 @@ body {
 }
 @media (width <= 700px) {
     body {
-        grid-template-rows: auto;
         grid-template-areas: 
         "header"
         "navigation"
