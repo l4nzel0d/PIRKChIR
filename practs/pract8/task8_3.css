@@ -136,10 +136,17 @@ main {
     border: none;
     padding: .4rem .8rem;
     border-radius: .2rem;
+    cursor: pointer;
+    transition: transform .2s ease-in;
 }
 
 .button:hover {
     background-color: var(--pressed-color);
+}
+
+.button:active {
+    transform: translateY(.2rem);
+    transition: none;
 }
 
 @media (max-width: 712px) {
