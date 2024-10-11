@@ -24,25 +24,24 @@ body {
 
 .body-grid-item {
     position: relative;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     padding: 0rem 1rem;
     min-height: var(--row-height);
     border: .3rem solid var(--border-color);
     border-radius: .3rem;
     box-shadow: 0rem .2rem .4rem .1rem rgba(0, 0, 0, .2);
-    justify-content: start;
-    align-items: start;
+    justify-items: start;
+    align-items: center;
 }
 
 @media (max-width: 700px) {
     .body-grid-item {
         grid-template-columns: 1fr; 
-        grid-auto-rows: var(--row-height); 
+        grid-auto-rows: minmax(var(--row-height), auto); 
     }
 
     main {
-        height: 500px;
+        height: 500px
     }
 }
 
