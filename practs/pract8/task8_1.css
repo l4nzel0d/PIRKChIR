@@ -58,7 +58,7 @@ body {
 @media (width > 1000px) {
     body {
         grid-template-rows: repeat(auto, 4);
-        grid-template-columns: 3fr 7fr 2fr;
+        grid-template-columns: 3fr 10fr 2fr;
         grid-template-areas: 
         "header header header"
         "sidebar navigation ads"
@@ -97,7 +97,7 @@ body {
         "footer";
     }
     main {
-        height: 500px;
+        height: 350px;
     }
 }
 
