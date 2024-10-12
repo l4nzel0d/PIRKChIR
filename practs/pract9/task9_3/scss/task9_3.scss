@@ -20,28 +20,19 @@ body {
     background-color: white;
 }
 
-@mixin reusable-before-after-container($width, $height: $width) {
+@mixin center-absolutely() {
     position: absolute;
-    content: "";
-    width: $width;
-    height: $height;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-}
-
-@mixin center-along-y-axis() {
     top: 50%;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-// @mixin change-width-and-height($width, $height: $width, $initial-width: null) {
-//     width: $width;
-//     height: $height;
+@mixin scale-center($scale) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale($scale);
+}
 
-//     $width-difference: ($width - $icon-dimension) / 2;
-//     left: calc($icon-left-position - $width-difference);
-// }
 
 .like-button {
     background-color: $button-background-color;
@@ -51,42 +42,100 @@ body {
     outline: none;
     border: none;
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-    &::before {
-        z-index: 1;
-        visibility: hidden;
-        @include reusable-before-after-container($icon-dimension);
-        @include center-along-y-axis();
-        left: $icon-left-position;
-        background-color: $like-icon-background-color;
-        border-radius: 50%;
-    }
-
-    &::after {
-        z-index: 2;
-        @include reusable-before-after-container($icon-dimension);
-        @include center-along-y-axis();
-        left: $icon-left-position;
-        background-image: url(../icons/heart.svg);
-        filter: invert(1) brightness(.8);
+    
+    .button-content {
+        display: flex;
+        width: 70%;
+        justify-content: space-between;
+        
+        .icon-container {
+            aspect-ratio: 1 / 1;
+            width: $icon-dimension;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+            .icon-background, .icon-foreground {
+                @include center-absolutely();
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                background-position: center;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            
+            .icon-foreground {
+                background-image: url(../icons/heart.svg);
+                filter: invert(1) brightness(.5) ;
+                z-index: 5;
+            }
+            
+            .icon-background {
+                opacity: 0;
+                z-index: 4;
+            }
+            
+        }
+        
     }
     
-
     &.pressed {
         background-color: $like-button-pressed-background-color;
-        &::before {
-            visibility: visible;
-            width: calc($icon-dimension);
-            animation: red-circle-animation 1.2s ease-out both;
-            // @include change-width-and-height(calc(.15 * $icon-dimension));
-            // @include change-width-and-height(calc(1.15 * $icon-dimension));
-            // @include change-width-and-height(calc(1 * $icon-dimension));
+        .button-content {
+            .icon-container {
+                .icon-foreground {
+                    background-image: url(../icons/heart-filled.svg);
+                    filter: brightness(0) invert(1);
+                    width: 100%;
+                    @include scale-center(.65);
+                    animation: scale-icon-foreground .2s ease-out both;
+                }
+        
+                .icon-background {
+                    opacity: 1;
+                    background: red;
+                    border-radius: 50%;
+                    animation: scale-icon-background .2s ease-out both;
+                }
+            }
         }
-        &::after {
-            visibility: hidden;
-            background-image: url(../icons/heart-filled.svg);
-            filter: brightness(0) invert(1);
-        }
+
+    }
+}
+
+@keyframes scale-icon-background {
+    0%, 100% {
+        width: 100%; // Initial width for both 0% and 100%
+    }
+    50% {
+        width: 115%; // Increase width by 15% at 50%
+    }
+}
+
+
+@keyframes scale-icon-foreground {
+    0% {
+        width: 100%;
+    }
+    20% {
+        width: 100%;
+    }
+    40% {
+        width: 100%;
+    }
+    60% {
+        width: 100%;
+    }
+    80% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
     }
 }
 

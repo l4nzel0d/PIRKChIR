@@ -21,48 +21,87 @@ body {
   outline: none;
   border: none;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.like-button::before {
-  z-index: 1;
-  visibility: hidden;
-  position: absolute;
-  content: "";
+.like-button .button-content {
+  display: flex;
+  width: 70%;
+  justify-content: space-between;
+}
+.like-button .button-content .icon-container {
+  aspect-ratio: 1/1;
   width: 2.1rem;
-  height: 2.1rem;
-  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.like-button .button-content .icon-container .icon-background, .like-button .button-content .icon-container .icon-foreground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  width: 100%;
   background-position: center;
   background-size: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20%;
-  background-color: #ED253A;
-  border-radius: 50%;
-}
-.like-button::after {
-  z-index: 2;
-  position: absolute;
-  content: "";
-  width: 2.1rem;
-  height: 2.1rem;
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-  top: 50%;
-  transform: translateY(-50%);
-  left: 20%;
+}
+.like-button .button-content .icon-container .icon-foreground {
   background-image: url(../icons/heart.svg);
-  filter: invert(1) brightness(0.8);
+  filter: invert(1) brightness(0.5);
+  z-index: 5;
+}
+.like-button .button-content .icon-container .icon-background {
+  opacity: 0;
+  z-index: 4;
 }
 .like-button.pressed {
   background-color: #FFEDED;
 }
-.like-button.pressed::before {
-  visibility: visible;
-  width: 2.1rem;
-  animation: red-circle-animation 1.2s ease-out both;
-}
-.like-button.pressed::after {
-  visibility: hidden;
+.like-button.pressed .button-content .icon-container .icon-foreground {
   background-image: url(../icons/heart-filled.svg);
   filter: brightness(0) invert(1);
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.65);
+  animation: scale-icon-foreground 0.2s ease-out both;
+}
+.like-button.pressed .button-content .icon-container .icon-background {
+  opacity: 1;
+  background: red;
+  border-radius: 50%;
+  animation: scale-icon-background 0.2s ease-out both;
+}
+
+@keyframes scale-icon-background {
+  0%, 100% {
+    width: 100%;
+  }
+  50% {
+    width: 115%;
+  }
+}
+@keyframes scale-icon-foreground {
+  0% {
+    width: 100%;
+  }
+  20% {
+    width: 100%;
+  }
+  40% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  80% {
+    width: 100%;
+  }
+  100% {
+    width: 100%;
+  }
 }/*# sourceMappingURL=task9_3.css.map */
