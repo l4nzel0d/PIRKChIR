@@ -1,11 +1,21 @@
-$button-height: 10rem;
-$button-width: 25rem;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+$button-height: 3rem;
+$button-width: 8rem;
 $icon-dimension: calc($button-height * .7);
-$icon-left-position: 20%;
 $button-background-color: #EFF1F4;
 $like-button-pressed-background-color: #FFEDED;
 $like-icon-background-color: #ED253A;
 $like-animation-timing: 1s;
+$button-content-brightness: .5;
 body {
     background-color: black;
 }
@@ -33,10 +43,14 @@ body {
     transform: translate(-50%, -50%) scale($scale);
 }
 
+@mixin filter-to-grayscale($brigtness) {
+    filter: brightness(0) invert(1) brightness($brigtness);
+}
 
 .like-button {
     background-color: $button-background-color;
-    width: $button-width;
+    width: auto;
+    min-width: max-content;
     height: $button-height;
     border-radius: calc($button-height * 0.5);
     outline: none;
@@ -45,16 +59,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: .2rem 1rem;
 
     
     .button-content {
         display: flex;
-        width: 70%;
         justify-content: space-between;
+        gap: .5rem;
         
         .icon-container {
             aspect-ratio: 1 / 1;
             width: $icon-dimension;
+            flex-shrink: 0;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -71,7 +87,7 @@ body {
             
             .icon-foreground {
                 background-image: url(../icons/heart.svg);
-                filter: invert(1) brightness(.5) ;
+                @include filter-to-grayscale($button-content-brightness);
                 z-index: 5;
             }
             
@@ -82,6 +98,15 @@ body {
             
         }
         
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+            @include filter-to-grayscale($button-content-brightness);
+        }
     }
     
     &.pressed {
@@ -90,7 +115,7 @@ body {
             .icon-container {
                 .icon-foreground {
                     background-image: url(../icons/heart-filled.svg);
-                    filter: brightness(0) invert(1);
+                    @include filter-to-grayscale(1);
                     width: 100%;
                     @include scale-center(.65);
                     animation: scale-icon-foreground $like-animation-timing ease-out both;
@@ -98,10 +123,17 @@ body {
         
                 .icon-background {
                     opacity: 1;
-                    background: red;
+                    background: $like-icon-background-color;
                     border-radius: 50%;
                     animation: scale-icon-background $like-animation-timing ease-out both;
                 }
+            }
+
+            .counter {
+                filter: none;
+                color: $like-icon-background-color;
+                opacity: 1;
+                color: $like-icon-background-color;
             }
         }
 
