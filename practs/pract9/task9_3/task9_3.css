@@ -68,13 +68,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.65);
-  animation: scale-icon-foreground 0.8s ease-out both;
+  animation: scale-icon-foreground 1s ease-out both;
 }
 .like-button.pressed .button-content .icon-container .icon-background {
   opacity: 1;
   background: red;
   border-radius: 50%;
-  animation: scale-icon-background 0.8s ease-out both;
+  animation: scale-icon-background 1s ease-out both;
 }
 
 @keyframes scale-icon-background {
@@ -84,7 +84,7 @@ body {
   40% {
     width: 80%;
   }
-  40% {
+  45% {
     width: 80%;
   }
   60% {
@@ -107,7 +107,7 @@ body {
   40% {
     width: 50%;
   }
-  50%, 60% {
+  53%, 60% {
     width: 140%;
   }
   80% {
