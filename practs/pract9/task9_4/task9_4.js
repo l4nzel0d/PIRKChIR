@@ -1,5 +1,10 @@
 let drawingModeEnabled = false;
 let drawingModeStarted = false;
+let heartInterval; // Variable to hold the interval ID
+let mouseX = 0; // Variable to track the X position of the mouse
+let mouseY = 0; // Variable to track the Y position of the mouse
+const heartTimeout = 15000;
+const heartIntervelRate = 10;
 
 function createHeart(x, y) {
     let heart = document.createElement("div");
@@ -8,14 +13,14 @@ function createHeart(x, y) {
     heart.style.top = y + "px";
     document.body.appendChild(heart);
     setTimeout(() => {
-        document.body.removeChild(heart);
-    }, 15000);
+        heart.remove();
+    }, heartTimeout);
 }
 
 function handleMouseMove(event) {
-    if (drawingModeEnabled && drawingModeStarted) {
-        createHeart(event.clientX, event.clientY);
-    }
+    // Update mouse position variables
+    mouseX = event.clientX;
+    mouseY = event.clientY;
 }
 
 function toggleDrawingModeEnabled() {
@@ -25,12 +30,11 @@ function toggleDrawingModeEnabled() {
     if (drawingModeEnabled) {
         button.textContent = "Drawing Mode Enabled"; 
         button.setAttribute("status", "enabled");
-        document.addEventListener("mousemove", handleMouseMove);
     } else {
         button.textContent = "Drawing Mode Disabled"; 
         button.setAttribute("status", "disabled"); 
-        document.removeEventListener("mousemove", handleMouseMove);
-        drawingModeStarted = false; 
+        drawingModeStarted = false; // Reset drawing mode when disabled
+        clearInterval(heartInterval); // Stop creating hearts
     }
 }
 
@@ -40,13 +44,22 @@ function toggleDrawingModeStarted(event) {
     }
 
     if (drawingModeEnabled) {
-        drawingModeStarted = !drawingModeStarted;
+        drawingModeStarted = !drawingModeStarted; // Toggle the drawing mode state
+
+        if (drawingModeStarted) {
+            // Start creating hearts at a fixed interval
+            heartInterval = setInterval(() => {
+                createHeart(mouseX, mouseY); // Use the current mouse position
+            }, heartIntervelRate); // How often
+        } else {
+            clearInterval(heartInterval); // Stop creating hearts when drawing mode is not started
+        }
     }
 }
 
 function clearAllHearts(event) {
-    event.preventDefault();
-    const hearts = document.querySelectorAll('.heart');
+    event.preventDefault(); // Prevent the context menu from appearing
+    const hearts = document.querySelectorAll('.heart'); 
     hearts.forEach(heart => {
         heart.remove();
     });
@@ -54,5 +67,6 @@ function clearAllHearts(event) {
 
 // Add event listeners
 document.getElementById("draw-button").addEventListener("click", toggleDrawingModeEnabled);
+document.addEventListener("mousemove", handleMouseMove); 
 document.addEventListener("click", toggleDrawingModeStarted);
 document.addEventListener("contextmenu", clearAllHearts);
