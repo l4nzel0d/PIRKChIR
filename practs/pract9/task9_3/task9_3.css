@@ -15,9 +15,9 @@ body {
 
 .like-button {
   background-color: #EFF1F4;
-  width: 6rem;
-  height: 3rem;
-  border-radius: 1.5rem;
+  width: 25rem;
+  height: 10rem;
+  border-radius: 5rem;
   outline: none;
   border: none;
   position: relative;
@@ -32,7 +32,7 @@ body {
 }
 .like-button .button-content .icon-container {
   aspect-ratio: 1/1;
-  width: 2.1rem;
+  width: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,38 +68,53 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.65);
-  animation: scale-icon-foreground 0.2s ease-out both;
+  animation: scale-icon-foreground 0.8s ease-out both;
 }
 .like-button.pressed .button-content .icon-container .icon-background {
   opacity: 1;
   background: red;
   border-radius: 50%;
-  animation: scale-icon-background 0.2s ease-out both;
+  animation: scale-icon-background 0.8s ease-out both;
 }
 
 @keyframes scale-icon-background {
-  0%, 100% {
+  15% {
     width: 100%;
   }
-  50% {
-    width: 115%;
+  40% {
+    width: 80%;
+  }
+  40% {
+    width: 80%;
+  }
+  60% {
+    width: 110%;
+  }
+  80% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
   }
 }
 @keyframes scale-icon-foreground {
   0% {
     width: 100%;
   }
-  20% {
-    width: 100%;
+  30% {
+    width: 50%;
   }
   40% {
-    width: 100%;
+    width: 50%;
   }
-  60% {
-    width: 100%;
+  50%, 60% {
+    width: 140%;
   }
   80% {
-    width: 100%;
+    width: 80%;
+  }
+  90% {
+    width: 105%;
   }
   100% {
     width: 100%;

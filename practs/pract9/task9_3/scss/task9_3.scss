@@ -1,11 +1,11 @@
-$button-height: 3rem;
-$button-width: 6rem;
+$button-height: 10rem;
+$button-width: 25rem;
 $icon-dimension: calc($button-height * .7);
 $icon-left-position: 20%;
 $button-background-color: #EFF1F4;
 $like-button-pressed-background-color: #FFEDED;
 $like-icon-background-color: #ED253A;
-
+$like-animation-timing: .8s;
 body {
     background-color: black;
 }
@@ -93,14 +93,14 @@ body {
                     filter: brightness(0) invert(1);
                     width: 100%;
                     @include scale-center(.65);
-                    animation: scale-icon-foreground .2s ease-out both;
+                    animation: scale-icon-foreground $like-animation-timing ease-out both;
                 }
         
                 .icon-background {
                     opacity: 1;
                     background: red;
                     border-radius: 50%;
-                    animation: scale-icon-background .2s ease-out both;
+                    animation: scale-icon-background $like-animation-timing ease-out both;
                 }
             }
         }
@@ -109,11 +109,23 @@ body {
 }
 
 @keyframes scale-icon-background {
-    0%, 100% {
-        width: 100%; // Initial width for both 0% and 100%
+    15% {
+        width: 100%;
     }
-    50% {
-        width: 115%; // Increase width by 15% at 50%
+    40% {
+        width: 80%;
+    }
+    40% {
+        width: 80%;
+    }
+    60% {
+        width: 110%;
+    }
+    80% {
+        width: 95%;
+    }
+    100% {
+        width: 100%;
     }
 }
 
@@ -122,17 +134,20 @@ body {
     0% {
         width: 100%;
     }
-    20% {
-        width: 100%;
+    30% {
+        width: 50%;
     }
     40% {
-        width: 100%;
+        width: 50%;
     }
-    60% {
-        width: 100%;
+    50%, 60% {
+        width: 140%;
     }
     80% {
-        width: 100%;
+        width: 80%;
+    }
+    90% {
+        width: 105%;
     }
     100% {
         width: 100%;
