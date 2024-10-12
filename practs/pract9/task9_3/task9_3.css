@@ -1,0 +1,55 @@
+body {
+  background-color: black;
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: white;
+}
+
+.like-button {
+  background-color: #EFF1F4;
+  width: 6rem;
+  height: 3rem;
+  border-radius: 1.5rem;
+  outline: none;
+  border: none;
+  position: relative;
+}
+.like-button::after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  width: 2.1rem;
+  height: 2.1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20%;
+  background-image: url(../icons/heart.svg);
+}
+.like-button::before {
+  z-index: 1;
+  position: absolute;
+  content: "";
+  width: 2.1rem;
+  height: 2.1rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 20%;
+  background-color: #ED253A;
+  border-radius: 50%;
+}
+.like-button.pressed {
+  background-color: #FFEDED;
+}/*# sourceMappingURL=task9_3.css.map */

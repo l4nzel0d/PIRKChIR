@@ -1,0 +1,68 @@
+$button-height: 3rem;
+$button-width: 6rem;
+$icon-dimension: calc($button-height * .7);
+$icon-left-position: 20%;
+$button-background-color: #EFF1F4;
+$like-button-pressed-background-color: #FFEDED;
+$like-icon-background-color: #ED253A;
+
+body {
+    background-color: black;
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    width: max-content;
+    background-color: white;
+}
+
+@mixin reusable-before-after-container($width, $height: $width) {
+    position: absolute;
+    content: "";
+    width: $width;
+    height: $height;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+}
+
+@mixin center-along-y-axis() {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.like-button {
+    background-color: $button-background-color;
+    width: $button-width;
+    height: $button-height;
+    border-radius: calc($button-height * 0.5);
+    outline: none;
+    border: none;
+    position: relative;
+
+    &::after {
+        z-index: 2;
+        @include reusable-before-after-container($icon-dimension);
+        @include center-along-y-axis();
+        left: $icon-left-position;
+        background-image: url(../icons/heart.svg);
+    }
+    
+    &::before {
+        z-index: 1;
+        @include reusable-before-after-container($icon-dimension);
+        @include center-along-y-axis();
+        left: $icon-left-position;
+        background-color: $like-icon-background-color;
+        border-radius: 50%;
+    }
+
+    &.pressed {
+        background-color: $like-button-pressed-background-color;
+    }
+}
+
+
