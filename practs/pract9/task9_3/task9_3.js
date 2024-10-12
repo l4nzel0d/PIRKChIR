@@ -1,15 +1,13 @@
-const likeButton = document.getElementById('likeButton');
-
-// Initialize the state variable
-let isLiked = false;
-
-// Toggle the button state on click
-likeButton.onclick = function() {
-    isLiked = !isLiked; // Toggle the state
-
-    if (isLiked) {
-        likeButton.classList.add('pressed'); // Add class for clicked state
+function toggleClass(element, className) {
+    if (element.classList.contains(className)) {
+        element.classList.remove(className);
     } else {
-        likeButton.classList.remove('pressed'); // Remove class for unclicked state
+        element.classList.add(className);
     }
-};
+}
+
+const likeButtons = document.querySelectorAll('.like-button');
+
+likeButtons.forEach(likeButton => {
+    likeButton.addEventListener('click', () => toggleClass(likeButton, 'pressed'));
+});

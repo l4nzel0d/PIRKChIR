@@ -14,6 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
     padding: 1rem;
     width: max-content;
     background-color: white;
@@ -34,6 +35,14 @@ body {
     transform: translateY(-50%);
 }
 
+// @mixin change-width-and-height($width, $height: $width, $initial-width: null) {
+//     width: $width;
+//     height: $height;
+
+//     $width-difference: ($width - $icon-dimension) / 2;
+//     left: calc($icon-left-position - $width-difference);
+// }
+
 .like-button {
     background-color: $button-background-color;
     width: $button-width;
@@ -43,16 +52,9 @@ body {
     border: none;
     position: relative;
 
-    &::after {
-        z-index: 2;
-        @include reusable-before-after-container($icon-dimension);
-        @include center-along-y-axis();
-        left: $icon-left-position;
-        background-image: url(../icons/heart.svg);
-    }
-    
     &::before {
         z-index: 1;
+        visibility: hidden;
         @include reusable-before-after-container($icon-dimension);
         @include center-along-y-axis();
         left: $icon-left-position;
@@ -60,8 +62,31 @@ body {
         border-radius: 50%;
     }
 
+    &::after {
+        z-index: 2;
+        @include reusable-before-after-container($icon-dimension);
+        @include center-along-y-axis();
+        left: $icon-left-position;
+        background-image: url(../icons/heart.svg);
+        filter: invert(1) brightness(.8);
+    }
+    
+
     &.pressed {
         background-color: $like-button-pressed-background-color;
+        &::before {
+            visibility: visible;
+            width: calc($icon-dimension);
+            animation: red-circle-animation 1.2s ease-out both;
+            // @include change-width-and-height(calc(.15 * $icon-dimension));
+            // @include change-width-and-height(calc(1.15 * $icon-dimension));
+            // @include change-width-and-height(calc(1 * $icon-dimension));
+        }
+        &::after {
+            visibility: hidden;
+            background-image: url(../icons/heart-filled.svg);
+            filter: brightness(0) invert(1);
+        }
     }
 }
 
