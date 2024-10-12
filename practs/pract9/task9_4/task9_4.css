@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(135deg, #ff7e9d, #ffb4b4);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  padding: 0.4rem 1rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-weight: bold;
+  transition: background 0.3s, border 0.3s;
+  font-size: 2rem;
+}
+button[status=disabled] {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+button:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+button:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.heart {
+  position: absolute;
+  aspect-ratio: 1/1;
+  width: 4rem;
+  background-image: url(../icons/heart-cursor.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  pointer-events: none;
+}/*# sourceMappingURL=task9_4.css.map */

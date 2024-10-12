@@ -1,0 +1,42 @@
+body {
+    background: linear-gradient(135deg, #ff7e9d, #ffb4b4); 
+    height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+}
+
+button {
+    padding: .4rem 1rem;
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    border: 1px solid rgba(255, 255, 255, 0.3); 
+    color: white; 
+    font-weight: bold; 
+    transition: background 0.3s, border 0.3s; 
+    font-size: 2rem;
+
+    &[status="disabled"] {
+        background-color: rgba(255, 255, 255, 0.1); 
+        border-color: rgba(255, 255, 255, 0.5); 
+    }
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.3); 
+    }
+
+    &:active {
+        background: rgba(255, 255, 255, 0.4);
+    }
+}
+
+.heart {
+    position: absolute;
+    aspect-ratio: 1 / 1;
+    width: 4rem;
+    background-image: url(../icons/heart-cursor.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    pointer-events: none;
+}
