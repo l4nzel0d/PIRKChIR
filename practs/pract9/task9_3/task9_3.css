@@ -7,22 +7,43 @@
 }
 
 body {
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  background: linear-gradient(135deg, #ff7e9d, #ffb4b4);
+  min-height: 100vh;
+  padding: 5rem;
 }
 
 .post-container {
+  width: 30rem;
+  height: auto;
+  border-radius: 1rem;
+  background-color: white;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 1rem;
+  gap: 0.8rem;
+}
+.post-container .post-content {
+  width: 100%;
+}
+.post-container .post-content img {
+  aspect-ratio: initial;
+  width: 100%;
+}
+.post-container .lower-post {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 1rem;
-  padding: 1rem;
-  width: -moz-max-content;
-  width: max-content;
-  background-color: white;
 }
 
 .like-button {
-  background-color: #EFF1F4;
+  background-color: #e7e7e7;
   width: auto;
   min-width: -moz-max-content;
   min-width: max-content;
@@ -89,13 +110,13 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(0.65);
-  animation: scale-icon-foreground 1s ease-out both;
+  animation: scale-icon-foreground 0.8s ease-out both;
 }
 .like-button.pressed .button-content .icon-container .icon-background {
   opacity: 1;
   background: #ED253A;
   border-radius: 50%;
-  animation: scale-icon-background 1s ease-out both;
+  animation: scale-icon-background 0.8s ease-out both;
 }
 .like-button.pressed .button-content .counter {
   filter: none;

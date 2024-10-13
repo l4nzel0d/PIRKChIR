@@ -11,24 +11,50 @@
 $button-height: 3rem;
 $button-width: 8rem;
 $icon-dimension: calc($button-height * .7);
-$button-background-color: #EFF1F4;
+$button-background-color: #e7e7e7;
 $like-button-pressed-background-color: #FFEDED;
 $like-icon-background-color: #ED253A;
-$like-animation-timing: 1s;
+$like-animation-timing: .8s;
 $button-content-brightness: .5;
 body {
-    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(135deg, #ff7e9d, #ffb4b4); 
+    min-height: 100vh; 
+    padding: 5rem;
 }
 
 .post-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    padding: 1rem;
-    width: max-content;
+    width: 30rem;
+    height: auto;
+    border-radius: 1rem;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 1rem;
+    gap: .8rem;
+
+    .post-content {
+        width: 100%;
+        img {
+            aspect-ratio: initial;
+            width: 100%;
+        }
+    }
+    
+    
+    .lower-post {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
 }
+
 
 @mixin center-absolutely() {
     position: absolute;
