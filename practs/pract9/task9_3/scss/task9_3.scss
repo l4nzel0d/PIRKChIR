@@ -24,7 +24,14 @@ body {
     background: linear-gradient(135deg, #ff7e9d, #ffb4b4); 
     min-height: 100vh; 
     padding: 5rem;
+
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
 }
+
 
 .post-container {
     width: 30rem;
@@ -34,8 +41,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 1rem;
+    padding: 1rem 0rem;
     gap: .8rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25), 0 3px 9px rgba(0, 0, 0, 0.3);
+
+    .post-header {
+        min-height: 1.3rem;
+    }
 
     .post-content {
         width: 100%;
@@ -47,6 +59,7 @@ body {
     
     
     .lower-post {
+        padding: 0rem 1rem;
         width: 100%;
         display: flex;
         justify-content: flex-start;
