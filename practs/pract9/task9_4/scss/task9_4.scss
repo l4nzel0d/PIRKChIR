@@ -2,8 +2,10 @@ body {
     background: linear-gradient(135deg, #ff7e9d, #ffb4b4); 
     height: 100vh; 
     display: flex; 
-    justify-content: center; 
+    flex-direction: column;
+    justify-content: start; 
     align-items: center; 
+    padding: 1rem 0rem;
 }
 
 button {
