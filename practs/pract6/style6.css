@@ -18,7 +18,6 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #20232a;
-    /* background-color: #ffffff; */
     display: flex;
     flex-direction: column;
     gap: 10rem;
@@ -110,11 +109,11 @@ body {
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 10px 15px; /* Add some padding for a better look */
-    border-radius: 10px; /* Round corners */
-    background-color: #ffffff; /* Default background color */
-    transition: background-color 0.4s; /* Smooth transition */
-    counter-increment: item; /* Increment the counter */
+    padding: 10px 15px; 
+    border-radius: 10px; 
+    background-color: #ffffff; 
+    transition: all .4s ease; 
+    counter-increment: item; 
 }
 
 
@@ -132,26 +131,27 @@ body {
 
 
 .dropdown .notification-item::before {
-    content: counter(item); /* Add numbering */
+    content: counter(item); 
     background-color: var(--primary-color);
     color: var(--secondary-color);
-    font-weight: bold; /* Make numbers bold */
-    display: inline-block; /* Ensure it behaves like a block for width/height */
+    font-weight: bold; 
+    display: inline-block; 
     min-width: 24px;
     min-height: 24px;
-    width: 24px; /* Set width */
-    height: 24px; /* Set height (same as width for a perfect circle) */
-    text-align: center; /* Center the text inside the circle */
-    line-height: 24px; /* Align the text vertically */
-    border-radius: 50%; /* Make it circular */
-    margin-right: 10px; /* Add space between the circle and the text */
+    width: 24px; 
+    height: 24px; 
+    text-align: center; 
+    line-height: 24px; 
+    border-radius: 50%; 
+    margin-right: 10px; 
+    transition: all .2s ease;
 }
 
 
 .dropdown .notification-item:hover {
-    background-color: var(--primary-color); /* Optional: change background on hover */
-    color: var(--secondary-color); /* Optional: change text color on hover */
-    transform: scale(1.2); /* Scale the item to 110% of its original size */
+    background-color: var(--primary-color); 
+    color: var(--secondary-color); 
+    transform: scale(1.2); 
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -353,13 +353,13 @@ body {
   }
 
 .card {
-    z-index: 0; /* Base z-index */
-    position: relative; /* Position relative for the pseudo-element */
+    z-index: 0; 
+    position: relative; 
     width: 20vw;
-    min-width: 260px; /* Example width */
-    overflow: hidden; /* Ensure no overflow */
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 10px 20px 10px #111; /* Card shadow */
+    min-width: 260px; 
+    overflow: hidden; 
+    border-radius: 10px; 
+    box-shadow: 0px 10px 20px 10px #111; 
 }
 
 .card img
@@ -369,20 +369,20 @@ body {
 }
 
 .card::before {
-    content: ""; /* Required for the pseudo-element to display */
-    position: absolute; /* Absolute positioning */
-    top: 0; /* Position at the top */
-    left: 0; /* Position at the left */
-    width: 100%; /* Full width of the card */
-    height: 100%; /* Full height of the card */
+    content: ""; 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
     background: linear-gradient(
         to top, 
-        rgba(255, 0, 0, 0.8) 20%, /* Start with red at the bottom */
+        rgba(255, 0, 0, 0.8) 20%, 
         rgba(255, 174, 0, 0.7) 40%, 
-        rgba(255, 0, 0, 0) 100%/* Fade to transparent at the top */
-    ); /* Example background */
-    z-index: 1; /* Layer above the card content */
-    transition: all var(--overlay-appearing-timing) ease; /* Transition effect */
+        rgba(255, 0, 0, 0) 100%
+    ); 
+    z-index: 1; 
+    transition: all var(--overlay-appearing-timing) ease; 
 }
 
 
@@ -403,7 +403,7 @@ body {
 
 .card:not(:hover)::before, .card:not(:hover) .card-overlay-info {
     visibility: hidden;
-    opacity: 0; /* Set to 0 when not hovered */
+    opacity: 0; 
     transition: opacity var(--overlay-appearing-timing) ease, visibility 0s var(--overlay-appearing-timing); /* Add delay for disappearing */
 }
 

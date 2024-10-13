@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+$button-height: 3rem;
+$button-width: 8rem;
+$icon-dimension: calc($button-height * .7);
+$button-background-color: #EFF1F4;
+$like-button-pressed-background-color: #FFEDED;
+$like-icon-background-color: #ED253A;
+$like-animation-timing: 1s;
+$button-content-brightness: .5;
+body {
+    background-color: black;
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: max-content;
+    background-color: white;
+}
+
+@mixin center-absolutely() {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@mixin scale-center($scale) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale($scale);
+}
+
+@mixin filter-to-grayscale($brigtness) {
+    filter: brightness(0) invert(1) brightness($brigtness);
+}
+
+.like-button {
+    background-color: $button-background-color;
+    width: auto;
+    min-width: max-content;
+    height: $button-height;
+    border-radius: calc($button-height * 0.5);
+    outline: none;
+    border: none;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: .2rem 1rem;
+
+    
+    .button-content {
+        display: flex;
+        justify-content: space-between;
+        gap: .5rem;
+        
+        .icon-container {
+            aspect-ratio: 1 / 1;
+            width: $icon-dimension;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            
+            .icon-background, .icon-foreground {
+                @include center-absolutely();
+                aspect-ratio: 1 / 1;
+                width: 100%;
+                background-position: center;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            
+            .icon-foreground {
+                background-image: url(../icons/heart.svg);
+                @include filter-to-grayscale($button-content-brightness);
+                z-index: 5;
+            }
+            
+            .icon-background {
+                opacity: 0;
+                z-index: 4;
+            }
+            
+        }
+        
+        .counter {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: black;
+            @include filter-to-grayscale($button-content-brightness);
+        }
+    }
+    
+    &.pressed {
+        background-color: $like-button-pressed-background-color;
+        .button-content {
+            .icon-container {
+                .icon-foreground {
+                    background-image: url(../icons/heart-filled.svg);
+                    @include filter-to-grayscale(1);
+                    width: 100%;
+                    @include scale-center(.65);
+                    animation: scale-icon-foreground $like-animation-timing ease-out both;
+                }
+        
+                .icon-background {
+                    opacity: 1;
+                    background: $like-icon-background-color;
+                    border-radius: 50%;
+                    animation: scale-icon-background $like-animation-timing ease-out both;
+                }
+            }
+
+            .counter {
+                filter: none;
+                color: $like-icon-background-color;
+                opacity: 1;
+                color: $like-icon-background-color;
+            }
+        }
+
+    }
+}
+
+@keyframes scale-icon-background {
+    15% {
+        width: 100%;
+    }
+    40% {
+        width: 80%;
+    }
+    45% {
+        width: 80%;
+    }
+    60% {
+        width: 110%;
+    }
+    80% {
+        width: 95%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+
+@keyframes scale-icon-foreground {
+    0% {
+        width: 100%;
+    }
+    30% {
+        width: 50%;
+    }
+    40% {
+        width: 50%;
+    }
+    53%, 60% {
+        width: 140%;
+    }
+    80% {
+        width: 80%;
+    }
+    90% {
+        width: 105%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+

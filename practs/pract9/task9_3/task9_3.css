@@ -1,0 +1,149 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: black;
+}
+
+.post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  width: -moz-max-content;
+  width: max-content;
+  background-color: white;
+}
+
+.like-button {
+  background-color: #EFF1F4;
+  width: auto;
+  min-width: -moz-max-content;
+  min-width: max-content;
+  height: 3rem;
+  border-radius: 1.5rem;
+  outline: none;
+  border: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 1rem;
+}
+.like-button .button-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.like-button .button-content .icon-container {
+  aspect-ratio: 1/1;
+  width: 2.1rem;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.like-button .button-content .icon-container .icon-background, .like-button .button-content .icon-container .icon-foreground {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  aspect-ratio: 1/1;
+  width: 100%;
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.like-button .button-content .icon-container .icon-foreground {
+  background-image: url(../icons/heart.svg);
+  filter: brightness(0) invert(1) brightness(0.5);
+  z-index: 5;
+}
+.like-button .button-content .icon-container .icon-background {
+  opacity: 0;
+  z-index: 4;
+}
+.like-button .button-content .counter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: black;
+  filter: brightness(0) invert(1) brightness(0.5);
+}
+.like-button.pressed {
+  background-color: #FFEDED;
+}
+.like-button.pressed .button-content .icon-container .icon-foreground {
+  background-image: url(../icons/heart-filled.svg);
+  filter: brightness(0) invert(1) brightness(1);
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.65);
+  animation: scale-icon-foreground 1s ease-out both;
+}
+.like-button.pressed .button-content .icon-container .icon-background {
+  opacity: 1;
+  background: #ED253A;
+  border-radius: 50%;
+  animation: scale-icon-background 1s ease-out both;
+}
+.like-button.pressed .button-content .counter {
+  filter: none;
+  color: #ED253A;
+  opacity: 1;
+  color: #ED253A;
+}
+
+@keyframes scale-icon-background {
+  15% {
+    width: 100%;
+  }
+  40% {
+    width: 80%;
+  }
+  45% {
+    width: 80%;
+  }
+  60% {
+    width: 110%;
+  }
+  80% {
+    width: 95%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+@keyframes scale-icon-foreground {
+  0% {
+    width: 100%;
+  }
+  30% {
+    width: 50%;
+  }
+  40% {
+    width: 50%;
+  }
+  53%, 60% {
+    width: 140%;
+  }
+  80% {
+    width: 80%;
+  }
+  90% {
+    width: 105%;
+  }
+  100% {
+    width: 100%;
+  }
+}/*# sourceMappingURL=task9_3.css.map */
