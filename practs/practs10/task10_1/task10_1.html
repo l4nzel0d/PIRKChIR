@@ -12,26 +12,25 @@
     <main>
         <div class="form">
             <div class="login-block">
-                <h2>Логин</h2>
+                <h2>Login</h2>
                 <input type="email" name="email" id="email" placeholder="Email">
                 <input type="password" name="password" id="password" placeholder="Password">
             </div>
             <div class="captcha-block">
-                <div class="wrapper-captcha">
-                    <div id="captcha"></div>
-                    <button id="generate-captcha">
-                        <i class="fa-solid fa-rotate-right"></i>
-                    </button>
-                </div>
-                <div class="wrapper-check">
+                    <div class="wrapper-captcha">
+                        <div id="captcha" data-val=""></div>
+                        <button id="generate-captcha">
+                            <i class="fa-solid fa-rotate-right"></i>
+                        </button>
+                    </div>
+                    <button id="change-captcha-type">Change Captcha Type</button>
+
                     <input type="text" id="user-input" placeholder="Enter Captcha">
                     <button id="check-captcha">Check</button>
-                </div>
-                <p>Try different captcha type</p>
-                <button id="change-captcha-type">Change Captcha Type</button>
-                <p id="result">Correct!</p>
+                    <p id="result"></p>
+                <!-- <p id="try-different">Give different captcha type a try</p> -->
             </div>
-            <input type="submit" value="Submit" status="disabled">
+            <input type="submit" value="Submit" disabled>
         </div>
     </main>
 </body>
