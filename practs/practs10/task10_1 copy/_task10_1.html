@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task10_1</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="task10_1.css">
+</head>
+<body>
+    <div class="wrapper">
+        <h2>Captcha Generator</h2>
+        <div class="wrapper-captcha">
+            <div id="captcha"></div>
+            <button onclick="generateCaptcha()">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </div>
+        <div class="wrapper-check">
+            <input type="text" id="userInput" placeholder="Enter Captcha">
+            <button onclick="validateCaptcha()">Check</button>
+        </div>
+        <p id="result"></p>
+    </div>
+    <script async src="task10_1.js"></script>
+</body>
+</html>
