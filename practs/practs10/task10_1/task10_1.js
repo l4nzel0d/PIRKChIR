@@ -52,7 +52,21 @@ function changeCaptchaType() {
     console.log(captchaType);
 }
 
+
+function isEmpty(value) {
+    return !value || value.trim() === ""; 
+}
+
 function checkCaptcha() {
+    if (isEmpty(userInputElement.value)) {
+        resultElement.innerHTML = "Input cannot be empty!";
+        resultElement.classList.remove('valid');
+        resultElement.classList.add('invalid');
+        submitButton.disabled = true;
+        return;
+    }
+
+
     if (userInputElement.value === captchaElement.getAttribute("data-val")) {
         resultElement.innerHTML = "Correct!";
         resultElement.classList.remove('invalid');
@@ -69,7 +83,7 @@ function checkCaptcha() {
         resultElement.innerHTML = "Invalid. Try again!";
         resultElement.classList.remove('valid');
         resultElement.classList.add('invalid');
-        
+
         submitButton.disabled = true;
 
         document.getElementById('change-captcha-type').style.display = 'block';
