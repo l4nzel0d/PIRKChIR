@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+* {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.container {
+  width: 900px;
+  max-width: 90vw;
+  padding-top: 0.8rem;
+}
+.container header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem;
+}
+.container header .icon-cart {
+  position: relative;
+}
+.container header .icon-cart svg {
+  width: 2rem;
+}
+.container header .icon-cart .cart-counter-container {
+  display: flex;
+  width: 1.4rem;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  background: green;
+  color: white;
+  position: absolute;
+  top: -13px;
+  right: -9px;
+}
+
+.displayedProductList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+.displayedProductList .item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+  background-color: #eeeee6;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+}
+.displayedProductList .item h2 {
+  font-weight: 500;
+  font-size: large;
+}
+.displayedProductList .item img {
+  width: 90%;
+  filter: drop-shadow(0 50px 20px rgba(0, 0, 0, 0.6));
+}
+.displayedProductList .item .price {
+  letter-spacing: 0.5rem;
+  font-size: small;
+}
+.displayedProductList .item button {
+  background-color: #353432;
+  color: #eee;
+  padding: 5px 10px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}/*# sourceMappingURL=task11_12.css.map */

@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+$background: #604184;
+$form-width: 30rem;
+$form-background: #f0f0f0;
+$border-radius: 5px;
+$captcha-background: #c8c8c8;
+$captcha-wrapper-height: 2.5rem;
+$captcha-button-dimension: calc($captcha-wrapper-height * .8);
+$captcha-wrapper-width: 15rem;
+$field-height: 2.2rem;
+$button-text-color: #fff;
+
+@mixin set-width-and-height($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin flex-column() {
+    display: flex;
+    flex-direction: column;
+}
+
+@mixin absolute-center-along-y() {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@mixin default-border-style() {
+    border-radius: $border-radius;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 .2rem 0 rgba(0,0,0,.1);    
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    @include flex-column();
+    justify-content: space-around;
+    background: $background;
+
+    main {
+        width: 100%;
+        @include flex-column();
+        align-items: center;
+        justify-content: center;
+
+        .form {
+            width: $form-width;
+            background: $form-background;
+            @include flex-column();
+            align-items: center;
+            padding: 1rem;
+            border-radius: .7rem;
+            gap: 1rem;
+
+            input, button {
+                @include default-border-style();
+                height: $field-height;
+                padding: .2rem .8rem;
+            }
+
+            button {
+                cursor: pointer;
+                background: $background;
+                color: $button-text-color;
+                &:hover {
+                    background: darken($background, 10%); 
+                }
+            }
+
+            > div {
+                @include flex-column();
+                width: 100%;
+                gap: .5rem;
+            }
+            
+            .captcha-block {
+                width: 100%;
+                display: grid;
+                grid-template-rows: $captcha-wrapper-height $field-height;
+                grid-template-columns: 1fr 1fr 2fr;
+                grid-template-areas: 
+                "captcha change-captcha-type change-captcha-type"
+                "user-input check-captcha result"
+                "try-different try-different try-different";
+                align-items: center;
+
+                .wrapper-captcha {
+                    grid-area: captcha;
+                }
+
+                #change-captcha-type {
+                    grid-area: change-captcha-type;
+                }
+
+                #user-input {
+                    grid-area: user-input;
+                }
+
+                #check-captcha {
+                    grid-area: check-captcha;
+                }
+
+                #result {
+                    grid-area: result;
+                }
+
+                #try-different {
+                    grid-area: try-different;
+                }
+
+                .wrapper-captcha {
+                    width: 100%;
+                    height: $captcha-wrapper-height;
+                    position: relative;
+                    background: $captcha-background;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding-left: 1rem;
+                    padding-right: .5rem;
+                    @include default-border-style();
+
+                    #captcha {
+                        width: max-content;
+                        height: 100%;
+                        position: relative;
+                        display: flex;
+                        align-items: center;
+                        
+                    }
+                    
+                    #generate-captcha {
+                        margin-left: auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        cursor: pointer;
+                        font-size: calc($captcha-button-dimension * .4);
+                        @include set-width-and-height($captcha-button-dimension);
+                        @include default-border-style();
+                    }
+                }
+
+                #check-captcha {
+                    width: max-content;
+                }
+
+                #change-captcha-type {
+                    display: none;
+                    height:  100%;
+                    font-size: 1rem;
+                    flex-grow: 1;
+                }
+
+                #result {
+                    width: 100%;
+
+                    &.valid {
+                        color: green;
+                    }
+
+                    &.invalid {
+                        color: red;
+                    }
+                }
+
+                #try-different {
+                    text-align: center;
+                    padding: .4rem .6rem;
+                }
+            }
+
+            input[type="submit"] {
+                background: $background;
+                color: $button-text-color;
+                cursor: pointer;
+                transition: all .2s;
+                &:disabled {
+                    cursor: not-allowed;
+                    background: lighten($background, 10%); 
+                    color: rgba($button-text-color, 0.5);
+                }
+
+                &:hover:not(:disabled) {
+                    background: darken($background, 10%); 
+                }
+            
+                &:active:not(:disabled) {
+                    transform: scale(.95);  
+                }
+            }
+        }
+    }
+}
