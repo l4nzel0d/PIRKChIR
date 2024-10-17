@@ -165,6 +165,14 @@ body {
 
                 #result {
                     width: 100%;
+
+                    &.valid {
+                        color: green;
+                    }
+
+                    &.invalid {
+                        color: red;
+                    }
                 }
 
                 #try-different {

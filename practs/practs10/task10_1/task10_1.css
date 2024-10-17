@@ -129,6 +129,12 @@ body main .form .captcha-block #change-captcha-type {
 body main .form .captcha-block #result {
   width: 100%;
 }
+body main .form .captcha-block #result.valid {
+  color: green;
+}
+body main .form .captcha-block #result.invalid {
+  color: red;
+}
 body main .form .captcha-block #try-different {
   text-align: center;
   padding: 0.4rem 0.6rem;

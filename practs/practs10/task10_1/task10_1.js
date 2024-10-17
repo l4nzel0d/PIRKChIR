@@ -55,6 +55,9 @@ function changeCaptchaType() {
 function checkCaptcha() {
     if (userInputElement.value === captchaElement.getAttribute("data-val")) {
         resultElement.innerHTML = "Correct!";
+        resultElement.classList.remove('invalid');
+        resultElement.classList.add('valid');
+
         submitButton.removeAttribute("disabled");
 
         const tryDifferentParagraph = document.getElementById('try-different');
@@ -64,6 +67,9 @@ function checkCaptcha() {
     }
     else {
         resultElement.innerHTML = "Invalid. Try again!";
+        resultElement.classList.remove('valid');
+        resultElement.classList.add('invalid');
+        
         submitButton.disabled = true;
 
         document.getElementById('change-captcha-type').style.display = 'block';
