@@ -5,13 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task10_3</title>
     <link rel="stylesheet" href="task10_3.css">
-    <script src="task10_3.js"></script>
+    <script async src="task10_3.js"></script>
 </head>
 <body>
     <main>
-        <div class="form-container">
+        <div class="controls">
+            <label for="maxlength">Max Length:</label>
+            <input type="number" id="maxlength" value="50">
+            <button id="apply">Apply Max Length</button>
+        </div>
+        
+        <div class="cards">
+            <div class="card">
+                <h3>Card 1</h3>
+                <p class="card-text" data-original="This is the content of card 1, and it can be very long depending on the text entered. Here is more content to test truncation."></p>
+            </div>
+
+            <div class="card">
+                <h3>Card 2</h3>
+                <p class="card-text" data-original="Card 2 has some other text, which might also be long. Let's see if truncation works correctly for this card."></p>
+            </div>
+
+            <div class="card">
+                <h3>Card 3</h3>
+                <p class="card-text" data-original="Lastly, card 3 has a description that is quite detailed and verbose. It should also be truncated based on the max length."></p>
+            </div>
         </div>
     </main>
-    
 </body>
 </html>
