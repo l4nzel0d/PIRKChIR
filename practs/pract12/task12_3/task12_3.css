@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+main {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+main .list-container {
+  margin-top: 20px;
+}
+main .list-container button {
+  background-color: #604184;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+main .list-container button:hover {
+  background-color: #503474;
+}
+main .list-container ul {
+  margin-top: 20px;
+  padding-left: 20px;
+  text-align: left;
+}
+main .list-container ul li {
+  list-style-type: disc;
+  padding: 5px 0;
+}/*# sourceMappingURL=task12_3.css.map */

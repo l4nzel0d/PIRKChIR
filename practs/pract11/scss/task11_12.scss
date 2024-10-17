@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+$cart-icon-dimension: 2rem;
+$cart-icon-counter-font-dimension: calc($cart-icon-dimension * .4);
+$cart-counter-background-color: green;
+$cart-counter-text-color: white;
+
+@mixin set-width-and-height($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.container {
+    width: 900px;
+    max-width: 90vw;
+    padding-top: .8rem;
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.25rem;
+
+        .icon-cart {
+            position: relative;
+
+            svg {
+                width: $cart-icon-dimension;
+            }
+            .cart-counter-container {
+                display: flex;
+                width: calc($cart-icon-counter-font-dimension + .6rem);
+                align-items: center;  
+                justify-content: center;
+                aspect-ratio: 1 / 1;
+                border-radius: 50%;  
+                font-size: $cart-icon-counter-font-dimension;
+
+                background: $cart-counter-background-color;
+                color: $cart-counter-text-color;
+
+                position: absolute;
+                top: -13px;
+                right: -9px;
+            }
+        }
+    }
+}
+
+.displayedProductList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: .5rem;
+        background-color: #eeeee6;
+        padding: 1.25rem;
+        border-radius: 1.25rem;
+
+        h2 {
+            font-weight: 500;
+            font-size: large;
+        }
+
+        img {
+            width: 90%;
+            filter: drop-shadow(0 50px 20px #0009);
+        }
+
+        .price {
+            letter-spacing: .5rem;
+            font-size: small;
+        }
+
+        button {
+            background-color: #353432;
+            color: #eee;
+            padding: 5px 10px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+    }
+
+}
