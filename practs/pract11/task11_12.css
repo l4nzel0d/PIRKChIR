@@ -18,6 +18,35 @@ body.showCart .cartTab {
   bottom: 0;
 }
 
+.sort-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.sort-filter .sort,
+.sort-filter .filter {
+  display: flex;
+  align-items: center;
+}
+.sort-filter .sort label,
+.sort-filter .filter label {
+  margin-right: 0.5rem;
+}
+.sort-filter .sort select,
+.sort-filter .sort input,
+.sort-filter .filter select,
+.sort-filter .filter input {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+}
+.sort-filter .sort button,
+.sort-filter .filter button {
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
 .primaryContainer {
   position: relative;
   width: 900px;
@@ -30,6 +59,7 @@ body.showCart .cartTab {
   justify-content: space-between;
   align-items: center;
   padding: 1.25rem;
+  border-radius: 1rem;
 }
 .primaryContainer header .iconCart {
   position: relative;

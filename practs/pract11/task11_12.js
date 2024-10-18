@@ -186,12 +186,71 @@ const changeQuantity = (product_id, type) => {
     addCartToMemory();
 }
 
+
+
+// Filter and Sort section
+
+const sortByDropdown = document.getElementById('sortBy');
+const minPriceInput = document.getElementById('minPrice');
+const maxPriceInput = document.getElementById('maxPrice');
+const applyFilterButton = document.getElementById('applyFilter');
+
+let filteredProducts = [...productList];
+
+
+const applyFiltersAndSort = () => {
+    const minPrice = parseFloat(minPriceInput.value) || 0;
+    const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
+
+    filteredProducts = productList.filter((product) => {
+        return product.price >= minPrice && product.price <= maxPrice
+    })
+
+    const sortBy = sortByDropdown.value;
+    switch (sortBy) {
+        case 'name-asc':
+            filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
+            break;
+        case 'name-desc':
+            filteredProducts.sort((a, b) => b.name.localeCompare(a.name));
+            break;
+        case 'price-asc':
+            filteredProducts.sort((a, b) => a.price - b.price);
+            break;
+        case 'price-desc':
+            filteredProducts.sort((a, b) => b.price - a.price);
+            break;
+    }
+
+    addFilteredProductsToHTML();
+}
+
+const addFilteredProductsToHTML= () => {
+    displayedProductListHTML.innerHTML = "";
+    filteredProducts.forEach((product) => {
+        let newProduct = document.createElement('div');
+        newProduct.classList.add('item');
+        newProduct.dataset.id = product.id;
+        newProduct.innerHTML = `
+            <img src="${product.image}" alt="">
+            <h2>${product.name}</h2>
+            <div class="price">$${product.price}</div>
+            <button class="addToCart">Add to Cart</button>
+        `;
+        displayedProductListHTML.appendChild(newProduct);
+    });
+}
+
+sortByDropdown.addEventListener('change', applyFiltersAndSort);
+applyFilterButton.addEventListener('click', applyFiltersAndSort);
+
 const initApp = () => {
     fetch('products.json')
     .then(response => response.json())
     .then(data => {
         productList = data;
         addDataToHTML();
+        applyFiltersAndSort();
 
         if (localStorage.getItem('cart')) {
             cart = JSON.parse(localStorage.getItem('cart'));
