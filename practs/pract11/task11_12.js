@@ -3,6 +3,7 @@ const cartClose = document.querySelector(".cartButtons .close");
 const body = document.querySelector("body");
 const displayedProductListHTML = document.querySelector('.displayedProductList');
 const cartListHTML = document.querySelector('.cartList');
+const cartTabHTML = document.querySelector('.cartTab');
 const cartIconCounterHTML = document.querySelector(".cartIconCounter");
 const cartTotalCostHTML = document.querySelector(".cartTotalCost");
 
@@ -19,6 +20,14 @@ iconCart.addEventListener('click', () => {
 
 cartClose.addEventListener('click', () => {
     body.classList.remove('showCart');
+})
+
+document.addEventListener('keydown', (event) => {
+    if (event.key == 'Escape') {
+        if (body.classList.contains('showCart')) {
+            body.classList.remove('showCart');
+        }
+    }
 })
 
 const addDataToHTML = () => {
@@ -50,29 +59,28 @@ displayedProductListHTML.addEventListener('click', (event) => {
 
 const addToCart = (product_id) => {
     let positionOfThisProductInCart = cart.products.findIndex((product) => product.product_id === product_id);
-    if (cart.products.length <= 0) {
-        cart.products = [{
-            product_id: product_id,
-            quantity: 1,
-        }]
-    } else if (positionOfThisProductInCart < 0) {
+    let productInfo = productList.find(product => product.id == product_id);
+    
+    if (positionOfThisProductInCart < 0) {
+        // New product in the cart
         cart.products.push({
             product_id: product_id,
             quantity: 1,
-        })
+        });
+        // Increment totals
+        cart.totalItemCount += 1;
+        cart.totalCost += productInfo.price;
     } else {
+        // Product already exists in the cart, increment quantity
         cart.products[positionOfThisProductInCart].quantity += 1;
+        // Adjust totals based on the added quantity
+        cart.totalItemCount += 1;
+        cart.totalCost += productInfo.price;
     }
-    cart.totalItemCount = cart.products.reduce((acc, item) => acc + item.quantity, 0);
-    cart.totalCost = cart.products.reduce((acc, item) => {
-        let productInfo = productList.find(product => product.id == item.product_id);
-        return acc + (productInfo.price * item.quantity);
-    }, 0);
 
-    console.log(cart)
     addCartToHTML();
     addCartToMemory();
-}
+};
 
 const addCartToMemory = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -106,11 +114,10 @@ const addCartToHTML = () => {
                     <i class="fa-solid fa-plus"></i>
                 </span>
                 <span class="trash">
-                    <span class="fa-solid fa-trash"></span>
+                    <span class="fa-solid fa-trash-can"></span>
                 </span>
             </div>
         `;
-            console.log(newProductInCart);
             cartListHTML.appendChild(newProductInCart);
         })
     }
@@ -126,39 +133,51 @@ const updateCartTotalCost = () => {
     cartTotalCostHTML.textContent = cart.totalCost;
 }
 
-cartListHTML.addEventListener('click', (event) => {
+cartTabHTML.addEventListener('click', (event) => {
     let clickTarget = event.target;
+    console.log(clickTarget);
     let clickTargetParent = clickTarget.parentElement;
     let type = undefined;
-    if (clickTargetParent.classList.contains('minus')) {
-        type = 'minus';
-    }
-    else if (clickTargetParent.classList.contains('plus')) {
-        type = 'plus';
-    }
-    else if (clickTargetParent.classList.contains('trash')){
-        type = 'trash';
-    }
+    type = ['minus', 'plus', 'trash', 'clear'].find(specialClass => clickTargetParent.classList.contains(specialClass));
 
-    if (type) {
+    if (['minus', 'plus', 'trash'].includes(type)) {
         let product_id = clickTarget.parentElement.parentElement.parentElement.dataset.id;
         changeQuantity(product_id, type);
+    } else if (type == 'clear') {
+        clearCart();
     }
 })
+
+const clearCart = () => {
+    cart.products = [];
+    cart.totalItemCount = 0;
+    cart.totalCost = 0;
+    addCartToHTML();
+    localStorage.removeItem('cart');
+}
 
 const changeQuantity = (product_id, type) => {
     let positionOfThisProductInCart = cart.products.findIndex((product) => product.product_id == product_id);
     if (positionOfThisProductInCart >= 0) {
+        let product = cart.products[positionOfThisProductInCart];
+        let productInfo = productList.find(product => product.id == product_id);
         switch (type) {
             case 'plus':
-                cart.products[positionOfThisProductInCart].quantity += 1;
+                product.quantity++;
+                cart.totalItemCount++;
+                cart.totalCost += productInfo.price;
                 break;
             case 'minus':
-                if (cart.products[positionOfThisProductInCart].quantity - 1 > 0) {
-                    cart.products[positionOfThisProductInCart].quantity -= 1;
+                if (product.quantity > 1) {
+                    product.quantity--;
+                    cart.totalItemCount--;
+                    cart.totalCost -= productInfo.price;
                     break;
                 }
+                // Otherwise trash block executes
             case 'trash':
+                cart.totalItemCount -= product.quantity;
+                cart.totalCost -= productInfo.price * product.quantity;
                 cart.products.splice(positionOfThisProductInCart, 1);
                 break;
         }
