@@ -42,7 +42,34 @@ body {
     }
 }
 
+.sort-filter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
 
+    .sort,
+    .filter {
+        display: flex;
+        align-items: center;
+
+        label {
+            margin-right: 0.5rem;
+        }
+
+        select,
+        input {
+            margin-right: 0.5rem;
+            padding: 0.25rem;
+        }
+
+        button {
+            padding: 0.25rem 0.5rem;
+            cursor: pointer;
+        }
+    }
+}
 
 .primaryContainer {
     position: relative;
@@ -56,6 +83,7 @@ body {
         justify-content: space-between;
         align-items: center;
         padding: 1.25rem;
+        border-radius: 1rem;
 
         .iconCart {
             position: relative;
