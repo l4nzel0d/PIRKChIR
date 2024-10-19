@@ -30,24 +30,6 @@ document.addEventListener('keydown', (event) => {
     }
 })
 
-const addDataToHTML = () => {
-    displayedProductListHTML.innerHTML = "";
-    if(productList.length > 0){
-        productList.forEach(product => {
-            let newProduct = document.createElement('div');
-            newProduct.classList.add('item');
-            newProduct.dataset.id = product.id;
-            newProduct.innerHTML = `
-                <img src="${product.image}" alt="">
-                <h2>${product.name}</h2>
-                <div class="price">$${product.price}</div>
-                <button class="addToCart">Add to Cart</button>
-            `;
-            displayedProductListHTML.appendChild(newProduct);
-        })
-    }
-}
-
 displayedProductListHTML.addEventListener('click', (event) => {
     let clickPosition = event.target;
     if (clickPosition.classList.contains('addToCart')) {
@@ -244,12 +226,13 @@ const addFilteredProductsToHTML= () => {
 sortByDropdown.addEventListener('change', applyFiltersAndSort);
 applyFilterButton.addEventListener('click', applyFiltersAndSort);
 
+
 const initApp = () => {
     fetch('products.json')
     .then(response => response.json())
     .then(data => {
         productList = data;
-        addDataToHTML();
+        // addDataToHTML();
         applyFiltersAndSort();
 
         if (localStorage.getItem('cart')) {

@@ -6,11 +6,21 @@
   padding: 0;
 }
 
+.displayedProductList .item {
+  background-color: #93785B !important;
+}
+.displayedProductList .item h2 {
+  color: black !important;
+  color: white !important;
+  text-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+}
+
 body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  background-color: #d6d3c6;
 }
 body.showCart .cartTab {
   top: 0;
@@ -19,20 +29,30 @@ body.showCart .cartTab {
 }
 
 .sort-filter {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
+  gap: 1rem;
+  background-color: #332e29;
+  color: #eee;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 .sort-filter .sort,
 .sort-filter .filter {
   display: flex;
   align-items: center;
+  width: -moz-max-content;
+  width: max-content;
 }
 .sort-filter .sort label,
 .sort-filter .filter label {
   margin-right: 0.5rem;
+  font-weight: 500;
 }
 .sort-filter .sort select,
 .sort-filter .sort input,
@@ -40,11 +60,45 @@ body.showCart .cartTab {
 .sort-filter .filter input {
   margin-right: 0.5rem;
   padding: 0.25rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+.sort-filter .sort input,
+.sort-filter .filter input {
+  max-width: 20vw;
 }
 .sort-filter .sort button,
 .sort-filter .filter button {
-  padding: 0.25rem 0.5rem;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
+  background-color: #93785B;
+  color: #eee;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.sort-filter .sort select,
+.sort-filter .filter select {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+.sort-filter .sort select option,
+.sort-filter .filter select option {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.sort-filter .sort select option:hover,
+.sort-filter .filter select option:hover {
+  background-color: #93785B;
+  color: white;
+}
+.sort-filter .sort select:hover,
+.sort-filter .filter select:hover {
+  background-color: #ddd;
 }
 
 .primaryContainer {
@@ -60,6 +114,7 @@ body.showCart .cartTab {
   align-items: center;
   padding: 1.25rem;
   border-radius: 1rem;
+  background-color: #93785B;
 }
 .primaryContainer header .iconCart {
   position: relative;
@@ -76,7 +131,7 @@ body.showCart .cartTab {
   aspect-ratio: 1/1;
   border-radius: 50%;
   font-size: 0.8rem;
-  background: green;
+  background: #c28b50;
   color: white;
   position: absolute;
   top: -13px;
@@ -109,12 +164,14 @@ body.showCart .cartTab {
 .displayedProductList .item .price {
   letter-spacing: 0.5rem;
   font-size: small;
+  font-size: 1rem;
 }
 .displayedProductList .item button {
   background-color: #353432;
   color: #eee;
-  padding: 5px 10px;
+  padding: 8px 15px;
   border-radius: 20px;
+  font-size: 1.3rem;
   border: none;
   cursor: pointer;
 }
@@ -149,7 +206,7 @@ body.showCart .cartTab {
   font-size: 1.2rem;
   font-weight: 100;
   -webkit-font-smoothing: antialiased;
-  color: rgba(255, 0, 0, 0.623);
+  color: rgb(255, 0, 0);
 }
 .cartTab .totalContainer {
   display: flex;
@@ -174,7 +231,7 @@ body.showCart .cartTab {
   cursor: pointer;
 }
 .cartTab .cartButtons button.checkOut {
-  background-color: #E8BC0E;
+  background-color: #93785B;
 }
 .cartTab .cartButtons button.clear {
   background-color: #e81c0e;
@@ -229,31 +286,9 @@ body.showCart .cartTab {
   margin: 0 0.3rem;
 }
 .cartTab .cartList .item:nth-child(even) {
-  background-color: rgba(238, 238, 238, 0.0666666667);
+  background-color: #574e3d;
 }
 
-@media (max-width: 1710px) {
-  body.showCart .primaryContainer {
-    align-self: flex-start;
-    margin-left: 5rem;
-  }
-}
-@media (max-width: 1380px) {
-  body.showCart .displayedProductList {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  body.showCart .primaryContainer {
-    width: 800px;
-  }
-}
-@media (max-width: 1290px) {
-  body.showCart .displayedProductList {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  body.showCart .primaryContainer {
-    width: 750px;
-  }
-}
 @media (max-width: 1200px) {
   .displayedProductList {
     grid-template-columns: repeat(3, 1fr);
@@ -268,6 +303,9 @@ body.showCart .cartTab {
   }
   .primaryContainer {
     width: 800px;
+  }
+  .sort-filter {
+    grid-template-columns: 1fr;
   }
 }
 @media (max-width: 600px) {
