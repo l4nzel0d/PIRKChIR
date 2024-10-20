@@ -7,10 +7,10 @@ textarea.addEventListener('input', () => {
 });
 
 textarea.addEventListener('keydown', (event) => {
+    if (event.shiftKey) {
+        return;
+    }
     if (event.key === 'Enter') {
-        if (event.shiftKey) {
-            return;
-        }
         event.preventDefault();
         createNotificationFromTextarea();
     }
