@@ -28,91 +28,6 @@ body.showCart .cartTab {
   bottom: 0;
 }
 
-.sort-filter {
-  display: grid;
-  grid-template-columns: auto auto;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  margin: 1rem 0rem;
-  gap: 1rem;
-  background-color: #332e29;
-  color: #eee;
-  border-radius: 1rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-.sort-filter .sort,
-.sort-filter .filter {
-  display: flex;
-  align-items: center;
-  width: -moz-max-content;
-  width: max-content;
-}
-.sort-filter .sort label,
-.sort-filter .filter label {
-  margin-right: 0.5rem;
-  font-weight: 500;
-}
-.sort-filter .sort select,
-.sort-filter .sort input,
-.sort-filter .filter select,
-.sort-filter .filter input {
-  margin-right: 0.5rem;
-  padding: 0.25rem;
-  background-color: #eee;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-}
-.sort-filter .sort input,
-.sort-filter .filter input {
-  max-width: 20vw;
-}
-.sort-filter .sort button,
-.sort-filter .filter button {
-  padding: 0.4rem 0.8rem;
-  cursor: pointer;
-  background-color: #93785B;
-  color: #eee;
-  border: none;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-}
-.sort-filter .sort button:hover,
-.sort-filter .filter button:hover {
-  background-color: #836b51;
-}
-.sort-filter .sort button:active,
-.sort-filter .filter button:active {
-  transform: scale(0.98);
-}
-.sort-filter .sort select,
-.sort-filter .filter select {
-  margin-right: 0.5rem;
-  padding: 0.25rem;
-  background-color: #eee;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-}
-.sort-filter .sort select option,
-.sort-filter .filter select option {
-  background-color: #f5f5f5;
-  color: #333;
-}
-.sort-filter .sort select option:hover,
-.sort-filter .filter select option:hover {
-  background-color: #93785B;
-  color: white;
-}
-.sort-filter .sort select:hover,
-.sort-filter .filter select:hover {
-  background-color: #ddd;
-}
-.sort-filter .sort label[for=minPrice], .sort-filter .sort label[for=maxPrice],
-.sort-filter .filter label[for=minPrice],
-.sort-filter .filter label[for=maxPrice] {
-  margin-right: 0.2rem;
-}
-
 .primaryContainer {
   position: relative;
   width: 900px;
@@ -150,13 +65,96 @@ body.showCart .cartTab {
   top: -13px;
   right: -9px;
 }
-
-.displayedProductList {
+.primaryContainer .sort-filter {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 1rem 0rem;
+  gap: 1rem;
+  background-color: #332e29;
+  color: #eee;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.primaryContainer .sort-filter .sort,
+.primaryContainer .sort-filter .filter {
+  display: flex;
+  align-items: center;
+  width: -moz-max-content;
+  width: max-content;
+}
+.primaryContainer .sort-filter .sort label,
+.primaryContainer .sort-filter .filter label {
+  margin-right: 0.5rem;
+  font-weight: 500;
+}
+.primaryContainer .sort-filter .sort select,
+.primaryContainer .sort-filter .sort input,
+.primaryContainer .sort-filter .filter select,
+.primaryContainer .sort-filter .filter input {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+.primaryContainer .sort-filter .sort input,
+.primaryContainer .sort-filter .filter input {
+  max-width: 20vw;
+}
+.primaryContainer .sort-filter .sort button,
+.primaryContainer .sort-filter .filter button {
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  background-color: #93785B;
+  color: #eee;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+.primaryContainer .sort-filter .sort button:hover,
+.primaryContainer .sort-filter .filter button:hover {
+  background-color: #836b51;
+}
+.primaryContainer .sort-filter .sort button:active,
+.primaryContainer .sort-filter .filter button:active {
+  transform: scale(0.98);
+}
+.primaryContainer .sort-filter .sort select,
+.primaryContainer .sort-filter .filter select {
+  margin-right: 0.5rem;
+  padding: 0.25rem;
+  background-color: #eee;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+.primaryContainer .sort-filter .sort select option,
+.primaryContainer .sort-filter .filter select option {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.primaryContainer .sort-filter .sort select option:hover,
+.primaryContainer .sort-filter .filter select option:hover {
+  background-color: #93785B;
+  color: white;
+}
+.primaryContainer .sort-filter .sort select:hover,
+.primaryContainer .sort-filter .filter select:hover {
+  background-color: #ddd;
+}
+.primaryContainer .sort-filter .sort label[for=minPrice], .primaryContainer .sort-filter .sort label[for=maxPrice],
+.primaryContainer .sort-filter .filter label[for=minPrice],
+.primaryContainer .sort-filter .filter label[for=maxPrice] {
+  margin-right: 0.2rem;
+}
+.primaryContainer .displayedProductList {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.25rem;
 }
-.displayedProductList .item {
+.primaryContainer .displayedProductList .item {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -166,20 +164,20 @@ body.showCart .cartTab {
   padding: 1.25rem;
   border-radius: 1.25rem;
 }
-.displayedProductList .item h2 {
+.primaryContainer .displayedProductList .item h2 {
   font-weight: 500;
   font-size: large;
 }
-.displayedProductList .item img {
+.primaryContainer .displayedProductList .item img {
   width: 90%;
   filter: drop-shadow(0 50px 20px rgba(0, 0, 0, 0.6));
 }
-.displayedProductList .item .price {
+.primaryContainer .displayedProductList .item .price {
   letter-spacing: 0.5rem;
   font-size: small;
   font-size: 1rem;
 }
-.displayedProductList .item button {
+.primaryContainer .displayedProductList .item button {
   background-color: #353432;
   color: #eee;
   padding: 8px 15px;
@@ -188,10 +186,10 @@ body.showCart .cartTab {
   border: none;
   cursor: pointer;
 }
-.displayedProductList .item button:hover {
+.primaryContainer .displayedProductList .item button:hover {
   background-color: #282726;
 }
-.displayedProductList .item button:active {
+.primaryContainer .displayedProductList .item button:active {
   transform: scale(0.98);
 }
 

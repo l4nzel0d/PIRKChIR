@@ -9,23 +9,9 @@
 
 $cart-icon-dimension: 2rem;
 $cart-icon-counter-font-dimension: calc($cart-icon-dimension * .4);
-$cart-counter-background-color: #3d2e1e;
-$cart-counter-text-color: white;
-$cart-tab-background-color: #353432;
-$cart-tab-text-color: #eee;
 $cart-tab-width: 400px;
 $primary-container-width: 900px;
 $cart-tab-appearing-timing: .5s;
-
-$body-background-color: #d6d3c6; 
-$header-background-color: #93785B; 
-$item-background-color: #93785B; 
-$check-out-button-color: #93785B;
-$cart-tab-background-color: #353432;
-$cart-tab-background-color-2: #574e3d;
-$filter-row-background-color: #332e29;
-$filter-apply-button-background-color: #93785B;
-$item-button-background-color: #353432;
 
 $color1: #3d2e1e;
 $color2: white;
@@ -36,17 +22,21 @@ $color6: #93785B;
 $color7: #5b4f3a;
 $color8: #332e29;
 
+$body-background-color: $color5;
+
+$header-background-color: $color6;
 $cart-counter-background-color: $color1;
 $cart-counter-text-color: $color2;
-$cart-tab-background-color: $color3;
-$cart-tab-text-color: $color4;
-$body-background-color: $color5;
-$header-background-color: $color6;
-$item-background-color: $color6;
-$check-out-button-color: $color6;
-$cart-tab-background-color-2: $color6;
+
 $filter-row-background-color: $color8;
 $filter-apply-button-background-color: $color6;
+
+$cart-tab-background-color: $color3;
+$cart-tab-background-color-2: $color6;
+$cart-tab-text-color: $color4;
+$check-out-button-color: $color6;
+
+$item-background-color: $color6;
 $item-button-background-color: $color3;
 
 
@@ -78,91 +68,7 @@ body {
     }
 }
 
-.sort-filter {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    margin: 1rem 0rem;
-    gap: 1rem;
-    background-color: $filter-row-background-color; // Same background color as items
-    color: $cart-tab-text-color; // Consistent text color
-    border-radius: 1rem; // Rounded corners to match product items
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Adds a subtle shadow for depth
 
-    .sort,
-    .filter {
-        display: flex;
-        align-items: center;
-        width: max-content;
-
-        label {
-            margin-right: 0.5rem;
-            font-weight: 500; // Slightly bold for labels to improve readability
-        }
-
-        select,
-        input {
-            margin-right: 0.5rem;
-            padding: 0.25rem;
-            background-color: #eee; // Light background for form controls
-            border-radius: 0.5rem; // Rounded edges for consistency
-            border: 1px solid #ccc; // Subtle border for form elements
-        }
-
-        input {
-            max-width: 20vw;
-        }
-
-        button {
-            padding: 0.4rem 0.8rem;
-            cursor: pointer;
-            background-color: $filter-apply-button-background-color; // Same color as cart tab button
-            color: $cart-tab-text-color;
-            border: none;
-            border-radius: 0.5rem; // Rounded corners for buttons
-            font-size: 1rem;
-
-            &:hover {
-                background-color: darken($filter-apply-button-background-color, 5%);
-            }
-
-            &:active {
-                transform: scale(.98);
-            }
-        }
-
-        select {
-            margin-right: 0.5rem;
-            padding: 0.25rem;
-            background-color: #eee; // Light background for the select field
-            border-radius: 0.5rem;  // Rounded edges for the dropdown
-            border: 1px solid #ccc; // Subtle border for form elements
-        
-            // Customizing options inside the dropdown
-            option {
-                background-color: #f5f5f5; // Background for each dropdown option
-                color: #333; // Text color for options
-            }
-        
-            // Hover effect for dropdown options (this is more of a suggestion; support varies across browsers)
-            option:hover {
-                background-color: #93785B; // Darker background for hover
-                color: white; // Light text color on hover
-            }
-        
-            &:hover {
-                background-color: #ddd; // Change background of the select field when hovered
-            }
-
-        }
-
-        label[for="minPrice"], label[for="maxPrice"] {
-            margin-right: .2rem;
-        }
-    }
-}
 
 .primaryContainer {
     position: relative;
@@ -205,58 +111,146 @@ body {
             }
         }
     }
-}
 
-.displayedProductList {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.25rem;
-
-    .item {
-        display: flex;
-        flex-direction: column;
+    .sort-filter {
+        display: grid;
+        grid-template-columns: auto auto;
+        justify-content: space-between;
         align-items: center;
-        text-align: center;
-        gap: .5rem;
-        background-color: #eeeee6;
-        padding: 1.25rem;
-        border-radius: 1.25rem;
-
-        h2 {
-            font-weight: 500;
-            font-size: large;
-        }
-
-        img {
-            width: 90%;
-            filter: drop-shadow(0 50px 20px #0009);
-        }
-
-        .price {
-            letter-spacing: .5rem;
-            font-size: small;
-            font-size: 1rem;
-        }
-
-        button {
-            background-color: $item-button-background-color;
-            color: $cart-tab-text-color;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 1.3rem;
-            border: none;
-            cursor: pointer;
-
-            &:hover {
-                background-color: darken($item-button-background-color, 5%);
+        padding: 1rem;
+        margin: 1rem 0rem;
+        gap: 1rem;
+        background-color: $filter-row-background-color; // Same background color as items
+        color: $cart-tab-text-color; // Consistent text color
+        border-radius: 1rem; // Rounded corners to match product items
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Optional: Adds a subtle shadow for depth
+    
+        .sort,
+        .filter {
+            display: flex;
+            align-items: center;
+            width: max-content;
+    
+            label {
+                margin-right: 0.5rem;
+                font-weight: 500; // Slightly bold for labels to improve readability
             }
+    
+            select,
+            input {
+                margin-right: 0.5rem;
+                padding: 0.25rem;
+                background-color: #eee; // Light background for form controls
+                border-radius: 0.5rem; // Rounded edges for consistency
+                border: 1px solid #ccc; // Subtle border for form elements
+            }
+    
+            input {
+                max-width: 20vw;
+            }
+    
+            button {
+                padding: 0.4rem 0.8rem;
+                cursor: pointer;
+                background-color: $filter-apply-button-background-color; // Same color as cart tab button
+                color: $cart-tab-text-color;
+                border: none;
+                border-radius: 0.5rem; // Rounded corners for buttons
+                font-size: 1rem;
+    
+                &:hover {
+                    background-color: darken($filter-apply-button-background-color, 5%);
+                }
+    
+                &:active {
+                    transform: scale(.98);
+                }
+            }
+    
+            select {
+                margin-right: 0.5rem;
+                padding: 0.25rem;
+                background-color: #eee; // Light background for the select field
+                border-radius: 0.5rem;  // Rounded edges for the dropdown
+                border: 1px solid #ccc; // Subtle border for form elements
+            
+                // Customizing options inside the dropdown
+                option {
+                    background-color: #f5f5f5; // Background for each dropdown option
+                    color: #333; // Text color for options
+                }
+            
+                // Hover effect for dropdown options (this is more of a suggestion; support varies across browsers)
+                option:hover {
+                    background-color: #93785B; // Darker background for hover
+                    color: white; // Light text color on hover
+                }
+            
+                &:hover {
+                    background-color: #ddd; // Change background of the select field when hovered
+                }
+    
+            }
+    
+            label[for="minPrice"], label[for="maxPrice"] {
+                margin-right: .2rem;
+            }
+        }
+    }
 
-            &:active {
-                transform: scale(.98);
+    .displayedProductList {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.25rem;
+    
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: .5rem;
+            background-color: #eeeee6;
+            padding: 1.25rem;
+            border-radius: 1.25rem;
+    
+            h2 {
+                font-weight: 500;
+                font-size: large;
+            }
+    
+            img {
+                width: 90%;
+                filter: drop-shadow(0 50px 20px #0009);
+            }
+    
+            .price {
+                letter-spacing: .5rem;
+                font-size: small;
+                font-size: 1rem;
+            }
+    
+            button {
+                background-color: $item-button-background-color;
+                color: $cart-tab-text-color;
+                padding: 8px 15px;
+                border-radius: 20px;
+                font-size: 1.3rem;
+                border: none;
+                cursor: pointer;
+    
+                &:hover {
+                    background-color: darken($item-button-background-color, 5%);
+                }
+    
+                &:active {
+                    transform: scale(.98);
+                }
             }
         }
     }
 }
+
+
 
 
 .cartTab {
@@ -390,6 +384,8 @@ body {
         }
     }
 }
+
+
 
 
 @media (max-width: 1200px) {
