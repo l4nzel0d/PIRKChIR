@@ -12,15 +12,18 @@ $body-background-color: #20232a;
 
 $notification-primary-color: #b612fd;
 $notification-secondary-color: white;
-$notification-circle-radius: 3.5rem;
+$notification-circle-diameter: 3.5rem;
 $notification-counter-font-size: 1rem;
+$notification-appearing-timing: .3s;
 
 body {
     background-color: $body-background-color;
+    position: relative;
 }
 
 .notification-container {
     display: block;
+
     position: fixed;
     right: 2rem;
     top: 2rem;
@@ -33,7 +36,7 @@ body {
         position: relative;
 
         aspect-ratio: 1 / 1;
-        width: $notification-circle-radius;
+        width: $notification-circle-diameter;
         border-radius: 50%;
 
         background-color: $notification-secondary-color;
@@ -42,9 +45,9 @@ body {
         cursor: pointer;
         
         i {
+            font-size: calc($notification-circle-diameter * .5);
+            
             color: #cecece;
-
-            font-size: calc($notification-circle-radius * .5);
         }
 
         .notification-count {
@@ -56,13 +59,64 @@ body {
             top: -1px;
             right: -1px;
 
-            color: white;
-            background-color: red;
-
             font-size: $notification-counter-font-size;
             aspect-ratio: 1 / 1;
             width: calc($notification-counter-font-size + .6rem);
             border-radius: 50%;
+            
+            color: white;
+            background-color: red;
         }
+    }
+
+    .notifications-list-container {
+        display: block;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        position: absolute;
+        top: calc($notification-circle-diameter + 1rem);
+        right: 0;
+
+        background-color: white;
+
+        width: 14rem;
+        height: calc-size(auto);
+        border-radius: 10px;
+        padding: .8rem 0;
+        
+        transition: height $notification-appearing-timing ease;
+
+        counter-reset: item-place;
+
+        .notification-item {
+            display: flex;
+            align-items: center;
+
+            color: black;
+
+            padding: .8rem 1rem;
+
+            counter-increment: item-place;
+
+            &::before {
+                content: counter(item-place);
+
+                display: inline-block;
+                text-align: center;
+                
+                margin-right: .8rem;
+
+                color: $notification-secondary-color;
+                background-color: $notification-primary-color;
+
+                aspect-ratio: 1 / 1;
+                width: 1.5rem;
+                border-radius: 50%;
+
+                font-weight: 500;
+            }
+        }
+
     }
 }
