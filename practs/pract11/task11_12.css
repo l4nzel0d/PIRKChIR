@@ -117,7 +117,8 @@ body.showCart .cartTab {
   position: relative;
   width: 900px;
   max-width: 90vw;
-  padding-top: 0.8rem;
+  margin-top: 0.8rem;
+  margin-bottom: 1.2rem;
   transition: transform 0.5s;
 }
 .primaryContainer header {
@@ -304,7 +305,7 @@ body.showCart .cartTab {
   margin: 0 0.3rem;
 }
 .cartTab .cartList .item:nth-child(even) {
-  background-color: #574e3d;
+  background-color: #93785B;
 }
 
 @media (max-width: 1200px) {
