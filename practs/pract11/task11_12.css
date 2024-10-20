@@ -48,8 +48,8 @@ body.showCart .cartTab {
   position: relative;
   cursor: pointer;
 }
-.primaryContainer header .iconCart svg {
-  width: 2rem;
+.primaryContainer header .iconCart i {
+  font-size: 2rem;
 }
 .primaryContainer header .iconCart .cartIconCounter {
   display: flex;

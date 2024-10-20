@@ -90,8 +90,8 @@ body {
             position: relative;
             cursor: pointer;
 
-            svg {
-                width: $cart-icon-dimension;
+            i {
+                font-size: $cart-icon-dimension;
             }
             .cartIconCounter {
                 display: flex;
