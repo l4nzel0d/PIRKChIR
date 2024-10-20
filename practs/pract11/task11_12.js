@@ -47,18 +47,14 @@ const addToCart = (product_id) => {
     let productInfo = productList.find(product => product.id == product_id);
     
     if (positionOfThisProductInCart < 0) {
-        // New product in the cart
         cart.products.push({
             product_id: product_id,
             quantity: 1,
         });
-        // Increment totals
         cart.totalItemCount += 1;
         cart.totalCost += productInfo.price;
     } else {
-        // Product already exists in the cart, increment quantity
         cart.products[positionOfThisProductInCart].quantity += 1;
-        // Adjust totals based on the added quantity
         cart.totalItemCount += 1;
         cart.totalCost += productInfo.price;
     }
@@ -260,7 +256,6 @@ const initApp = () => {
     .then(response => response.json())
     .then(data => {
         productList = data;
-        // addDataToHTML();
         applyFiltersAndSort();
 
         if (localStorage.getItem('cart')) {
