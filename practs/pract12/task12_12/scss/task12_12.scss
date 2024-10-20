@@ -8,129 +8,61 @@
     padding: 0;
 }
 
-$primary-color: #4175ee;
+$body-background-color: #20232a;
+
+$notification-primary-color: #b612fd;
+$notification-secondary-color: white;
+$notification-circle-radius: 3.5rem;
+$notification-counter-font-size: 1rem;
 
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0;
+    background-color: $body-background-color;
+}
 
-    .notifications-container {
+.notification-container {
+    display: block;
+    position: fixed;
+    right: 2rem;
+    top: 2rem;
+
+    .notification-icon {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        justify-content: flex-start;
-        gap: .5rem;
-    
-        position: fixed;
-        top: 1rem;
+
+        position: relative;
+
+        aspect-ratio: 1 / 1;
+        width: $notification-circle-radius;
+        border-radius: 50%;
+
+        background-color: $notification-secondary-color;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+
+        cursor: pointer;
         
-        .notification {
-            background-color: $primary-color; 
-            color: rgb(255, 255, 255);
-            padding: 10px 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-            animation: notification-appearing-animation .3s ease both;
+        i {
+            color: #cecece;
 
-            p {
-                text-align: center;
-                position: relative;
-
-                &:before {
-                    left: -1.8rem;
-                    content: "📢";
-                }
-                
-                &:after {
-                    right: -1.8rem;
-                    content: "🚀";
-                }
-                
-                &:before, &:after {
-                    position: absolute;
-                    top: 50%;
-                    transform: translateY(-60%);                   
-                }
-            }
-
-
-            &.fade-out {
-                animation: notification-disappearing-animation .3s ease both;
-            }
+            font-size: calc($notification-circle-radius * .5);
         }
 
-        @keyframes notification-appearing-animation {
-            0% {
-                opacity: 0;
-                transform: scale(.5);
-            }
-            80% {
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        @keyframes notification-disappearing-animation {
-            0% {
-                opacity: 1;
-            }
-            100% {
-                opacity: 0;
-                transform: scale(.8);
-            }
-        }
-    }
+        .notification-count {
+            display: flex;
+            align-items: center;  
+            justify-content: center;
 
-    .notification-maker-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-around;
+            position: absolute;
+            top: -1px;
+            right: -1px;
 
-        background-color: $primary-color;
-        padding: 1rem;
-        border-radius: 8px;
-        gap: .5rem;
-        width: 500px;
-        max-height: 400px;
+            color: white;
+            background-color: red;
 
-        textarea {
-            padding: .5rem;
-            border-radius: 5px;
-            width: 100%;
-            resize: none;
-            font-size: 1.5rem;
-            text-align: center;
-            overflow-y: scroll;
-        }
-
-        button {
-            width: max-content;
-            outline: none;
-            border: none;
-            border-radius: 15px;
-            font-size: 1.5rem;
-            padding: .5rem 1rem;
-            background-color: #ffffff; 
-            cursor: pointer; 
-            transition: background-color 0.1s, transform 0.1s; 
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
-            font-weight: 100;
-        }
-        
-        button:hover {
-            transform: scale(1.02); 
-        }
-        
-        button:active {
-            transform: scale(0.98); 
+            font-size: $notification-counter-font-size;
+            aspect-ratio: 1 / 1;
+            width: calc($notification-counter-font-size + .6rem);
+            border-radius: 50%;
         }
     }
 }
-

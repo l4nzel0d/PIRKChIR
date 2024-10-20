@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   font-family: "Poppins", sans-serif;
@@ -8,110 +7,42 @@
 }
 
 body {
+  background-color: #20232a;
+}
+
+.notification-container {
+  display: block;
+  position: fixed;
+  right: 2rem;
+  top: 2rem;
+}
+.notification-container .notification-icon {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  background-color: #f0f0f0;
-}
-body .notifications-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 0.5rem;
-  position: fixed;
-  top: 1rem;
-}
-body .notifications-container .notification {
-  background-color: #4175ee;
-  color: rgb(255, 255, 255);
-  padding: 10px 2.5rem;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  animation: notification-appearing-animation 0.3s ease both;
-}
-body .notifications-container .notification p {
-  text-align: center;
   position: relative;
-}
-body .notifications-container .notification p:before {
-  left: -1.8rem;
-  content: "📢";
-}
-body .notifications-container .notification p:after {
-  right: -1.8rem;
-  content: "🚀";
-}
-body .notifications-container .notification p:before, body .notifications-container .notification p:after {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-60%);
-}
-body .notifications-container .notification.fade-out {
-  animation: notification-disappearing-animation 0.3s ease both;
-}
-@keyframes notification-appearing-animation {
-  0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-  80% {
-    transform: scale(1.05);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-@keyframes notification-disappearing-animation {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-}
-body .notification-maker-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  background-color: #4175ee;
-  padding: 1rem;
-  border-radius: 8px;
-  gap: 0.5rem;
-  width: 500px;
-  max-height: 400px;
-}
-body .notification-maker-container textarea {
-  padding: 0.5rem;
-  border-radius: 5px;
-  width: 100%;
-  resize: none;
-  font-size: 1.5rem;
-  text-align: center;
-  overflow-y: scroll;
-}
-body .notification-maker-container button {
-  width: -moz-max-content;
-  width: max-content;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  font-size: 1.5rem;
-  padding: 0.5rem 1rem;
-  background-color: #ffffff;
+  aspect-ratio: 1/1;
+  width: 3.5rem;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  transition: background-color 0.1s, transform 0.1s;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  font-weight: 100;
 }
-body .notification-maker-container button:hover {
-  transform: scale(1.02);
+.notification-container .notification-icon i {
+  color: #cecece;
+  font-size: 1.75rem;
 }
-body .notification-maker-container button:active {
-  transform: scale(0.98);
+.notification-container .notification-icon .notification-count {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  color: white;
+  background-color: red;
+  font-size: 1rem;
+  aspect-ratio: 1/1;
+  width: 1.6rem;
+  border-radius: 50%;
 }/*# sourceMappingURL=task12_12.css.map */
