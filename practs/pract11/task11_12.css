@@ -34,8 +34,7 @@ body.showCart .cartTab {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 1rem 0rem;
   gap: 1rem;
   background-color: #332e29;
   color: #eee;
@@ -78,6 +77,14 @@ body.showCart .cartTab {
   border-radius: 0.5rem;
   font-size: 1rem;
 }
+.sort-filter .sort button:hover,
+.sort-filter .filter button:hover {
+  background-color: #836b51;
+}
+.sort-filter .sort button:active,
+.sort-filter .filter button:active {
+  transform: scale(0.98);
+}
 .sort-filter .sort select,
 .sort-filter .filter select {
   margin-right: 0.5rem;
@@ -99,6 +106,11 @@ body.showCart .cartTab {
 .sort-filter .sort select:hover,
 .sort-filter .filter select:hover {
   background-color: #ddd;
+}
+.sort-filter .sort label[for=minPrice], .sort-filter .sort label[for=maxPrice],
+.sort-filter .filter label[for=minPrice],
+.sort-filter .filter label[for=maxPrice] {
+  margin-right: 0.2rem;
 }
 
 .primaryContainer {
@@ -131,7 +143,7 @@ body.showCart .cartTab {
   aspect-ratio: 1/1;
   border-radius: 50%;
   font-size: 0.8rem;
-  background: #c28b50;
+  background: #3d2e1e;
   color: white;
   position: absolute;
   top: -13px;
@@ -174,6 +186,12 @@ body.showCart .cartTab {
   font-size: 1.3rem;
   border: none;
   cursor: pointer;
+}
+.displayedProductList .item button:hover {
+  background-color: #282726;
+}
+.displayedProductList .item button:active {
+  transform: scale(0.98);
 }
 
 .cartTab {
