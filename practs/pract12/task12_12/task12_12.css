@@ -48,9 +48,7 @@ body {
   background-color: red;
 }
 .notification-container .notifications-list-container {
-  display: block;
-  flex-direction: column;
-  justify-content: flex-start;
+  visibility: hidden;
   position: absolute;
   top: 4.5rem;
   right: 0;
@@ -66,6 +64,7 @@ body {
   display: flex;
   align-items: center;
   color: black;
+  border-radius: 10px;
   padding: 0.8rem 1rem;
   counter-increment: item-place;
 }
@@ -80,4 +79,25 @@ body {
   width: 1.5rem;
   border-radius: 50%;
   font-weight: 500;
+}
+.notification-container .notifications-list-container .notification-item:hover {
+  background-color: #b612fd;
+  transform: scale(1.1);
+}
+.notification-container .notifications-list-container::before {
+  visibility: hidden;
+  content: "";
+  position: absolute;
+  background: transparent;
+  top: -2rem;
+  height: 4rem;
+  width: 14rem;
+  z-index: -1;
+}
+.notification-container:hover .notifications-list-container::before {
+  visibility: visible;
+}
+.notification-container:hover .notifications-list-container,
+.notification-container .notification-container:hover {
+  visibility: visible;
 }/*# sourceMappingURL=task12_12.css.map */
