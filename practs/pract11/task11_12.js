@@ -6,6 +6,9 @@ const cartListHTML = document.querySelector('.cartList');
 const cartTabHTML = document.querySelector('.cartTab');
 const cartIconCounterHTML = document.querySelector(".cartIconCounter");
 const cartTotalCostHTML = document.querySelector(".cartTotalCost");
+const overlayElement = document.querySelector('.pageOverlay');
+const clearCartConfirmationContainer = document.querySelector('.clearCartConfirmationContainer');
+
 
 let productList = [];
 let cart = {
@@ -126,9 +129,33 @@ cartTabHTML.addEventListener('click', (event) => {
         let product_id = clickTarget.parentElement.parentElement.parentElement.dataset.id;
         changeQuantity(product_id, type);
     } else if (type == 'clear') {
-        clearCart();
+        askToConfirmClearCart();
     }
 })
+
+const askToConfirmClearCart = () => {
+    overlayElement.classList.remove("hidden");
+    clearCartConfirmationContainer.classList.remove("hidden");
+}
+
+clearCartConfirmationContainer.addEventListener('click', (event) => {
+    const target = event.target;
+
+    if (target.tagName !== 'BUTTON') return;
+
+    if (target.id === "confirmClear") {
+        clearCart();
+    }
+
+    hideConfirmClearCart();
+})
+
+const hideConfirmClearCart = () => {
+    overlayElement.classList.add("hidden");
+    clearCartConfirmationContainer.classList.add("hidden");
+}
+
+
 
 const clearCart = () => {
     cart.products = [];
