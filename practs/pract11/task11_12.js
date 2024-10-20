@@ -134,6 +134,7 @@ cartTabHTML.addEventListener('click', (event) => {
 })
 
 const askToConfirmClearCart = () => {
+    if (cart.totalItemCount == 0) return;
     overlayElement.classList.remove("hidden");
     clearCartConfirmationContainer.classList.remove("hidden");
 }

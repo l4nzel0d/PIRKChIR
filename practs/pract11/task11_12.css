@@ -344,7 +344,7 @@ body.showCart .cartTab {
 .clearCartConfirmationContainer p {
   color: white;
   text-align: center;
-  padding: 0.5rem 0.5rem;
+  padding: 2.5rem 1.5rem;
   font-size: 1.5rem;
 }
 .clearCartConfirmationContainer .buttonsContainer {
