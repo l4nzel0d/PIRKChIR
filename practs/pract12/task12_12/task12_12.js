@@ -5,7 +5,11 @@ const notificationCounterElement = document.querySelector(".notification-count")
 
 let notificationCount = 0;
 
-let timerNotificationCreator = setInterval(addNewNotification, 3000);
+let timerNotificationCreator;
+function startNotificationCreatorTimer() {
+    timerNotificationCreator = setInterval(addNewNotification, 3000);
+    console.log("Timer Set");
+} 
 
 function addNewNotification() {
     let notificationText = "New Notification";
@@ -23,5 +27,16 @@ function updateNotificationCount() {
     notificationCounterElement.textContent = notificationCount;
 }
 
-updateNotificationCount();
 
+notificationIconElement.addEventListener('click', () => {
+    clearInterval(timerNotificationCreator);
+    
+    console.log("Timer Cleared");
+
+    setTimeout(() => {
+        startNotificationCreatorTimer();
+    }, 10000);
+})
+
+startNotificationCreatorTimer();
+updateNotificationCount();
