@@ -67,6 +67,8 @@ body {
   border-radius: 10px;
   padding: 0.8rem 1rem;
   counter-increment: item-place;
+  overflow: hidden;
+  cursor: pointer;
 }
 .notification-container .notifications-list-container .notification-item::before {
   content: counter(item-place);
