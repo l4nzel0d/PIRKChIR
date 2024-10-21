@@ -22,7 +22,7 @@ body {
   right: 2rem;
   top: 2rem;
 }
-.notification-container .notification-icon {
+.notification-container .bell-icon-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,11 +34,11 @@ body {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   cursor: pointer;
 }
-.notification-container .notification-icon i {
+.notification-container .bell-icon-container i {
   font-size: 1.75rem;
   color: #cecece;
 }
-.notification-container .notification-icon .notification-count {
+.notification-container .bell-icon-container .notification-count {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -58,7 +58,7 @@ body {
   top: 4.5rem;
   right: 0;
   background-color: white;
-  width: 14rem;
+  width: 15rem;
   height: calc-size(auto);
   border-radius: 10px;
   padding: 0.8rem 0;
@@ -68,6 +68,7 @@ body {
 .notification-container .notifications-list-container .notification-item {
   display: flex;
   align-items: center;
+  position: relative;
   color: black;
   border-radius: 10px;
   padding: 0.8rem 1rem;
@@ -90,13 +91,14 @@ body {
 }
 .notification-container .notifications-list-container .notification-item::before {
   content: counter(item-place);
-  display: inline-block;
+  display: block;
   text-align: center;
   margin-right: 0.8rem;
   color: white;
   background-color: #b612fd;
   aspect-ratio: 1/1;
   width: 1.5rem;
+  height: 1.5rem;
   border-radius: 50%;
   font-weight: 500;
 }
@@ -104,6 +106,22 @@ body {
   color: white;
   background-color: #b612fd;
   transform: scale(1.1);
+}
+.notification-container .notifications-list-container .notification-item:hover i {
+  color: white;
+}
+.notification-container .notifications-list-container .notification-item.in-removal {
+  animation: notification-disappearing-animation 0.4s ease forwards;
+}
+@keyframes notification-disappearing-animation {
+  0% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
 }
 .notification-container .notifications-list-container::before {
   visibility: hidden;
@@ -114,6 +132,11 @@ body {
   height: 4rem;
   width: 14rem;
   z-index: -1;
+}
+.notification-container .notifications-list-container i {
+  margin-left: auto;
+  color: red;
+  font-size: 1.2rem;
 }
 .notification-container:hover .notifications-list-container::before {
   visibility: visible;

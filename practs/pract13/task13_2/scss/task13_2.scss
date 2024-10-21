@@ -33,7 +33,7 @@ body {
     right: 2rem;
     top: 2rem;
 
-    .notification-icon {
+    .bell-icon-container {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -83,7 +83,7 @@ body {
 
         background-color: white;
 
-        width: 14rem;
+        width: 15rem;
         height: calc-size(auto);
         border-radius: 10px;
         padding: .8rem 0;
@@ -95,6 +95,7 @@ body {
         .notification-item {
             display: flex;
             align-items: center;
+            position: relative;
 
             color: black;
 
@@ -125,7 +126,7 @@ body {
             &::before {
                 content: counter(item-place);
 
-                display: inline-block;
+                display: block;
                 text-align: center;
                 
                 margin-right: .8rem;
@@ -135,6 +136,7 @@ body {
 
                 aspect-ratio: 1 / 1;
                 width: 1.5rem;
+                height: 1.5rem;
                 border-radius: 50%;
 
                 font-weight: 500;
@@ -144,8 +146,34 @@ body {
                 color: white;
                 background-color: $notification-primary-color;
                 transform: scale(1.1);
+
+                i {
+                    color: white;
+                }
             }
+
+            &.in-removal {
+                animation: notification-disappearing-animation .4s ease forwards;
+
+                @keyframes notification-disappearing-animation {
+                    0% {
+                        transform: scale(1.1);
+                        opacity: 1;
+                    }
+                    100% {
+                        transform: scale(.3);
+                        opacity: 0;
+                    }
+                    
+                }
+            }
+
+
         }
+
+
+
+
 
         &::before {
             visibility: hidden;
@@ -160,6 +188,13 @@ body {
             width: 14rem;
             z-index: -1;
         }
+
+        i {
+            margin-left: auto;
+            color: red;
+            font-size: 1.2rem;
+        }
+
     }
 
     &:hover .notifications-list-container::before {
