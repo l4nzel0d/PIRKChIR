@@ -14,7 +14,7 @@ $notification-primary-color: #b612fd;
 $notification-secondary-color: white;
 $notification-circle-diameter: 3.5rem;
 $notification-counter-font-size: 1rem;
-$notification-appearing-timing: .3s;
+$notification-appearing-timing: .4s;
 
 body {
     background-color: $body-background-color;
@@ -125,33 +125,42 @@ body {
 
             &::before {
                 content: counter(item-place);
-
+                
                 display: block;
                 text-align: center;
                 
                 margin-right: .8rem;
-
+                
                 color: $notification-secondary-color;
                 background-color: $notification-primary-color;
-
+                
                 aspect-ratio: 1 / 1;
                 width: 1.5rem;
                 height: 1.5rem;
                 border-radius: 50%;
-
+                
                 font-weight: 500;
             }
 
+            .remove-notification {
+                margin-left: auto;
+                font-size: 1.2rem;
+                opacity: 0;
+                pointer-events: none;
+            }
+            
             &:hover {
                 color: white;
                 background-color: $notification-primary-color;
                 transform: scale(1.1);
 
-                i {
+                .remove-notification {
+                    opacity: 1;
                     color: white;
+                    pointer-events: all;
                 }
             }
-
+            
             &.in-removal {
                 animation: notification-disappearing-animation .4s ease forwards;
 
@@ -189,11 +198,6 @@ body {
             z-index: -1;
         }
 
-        i {
-            margin-left: auto;
-            color: red;
-            font-size: 1.2rem;
-        }
 
     }
 

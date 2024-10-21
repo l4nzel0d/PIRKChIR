@@ -16,7 +16,7 @@ function addNewNotification() {
 
     const notificationElement = document.createElement('div');
     notificationElement.className = "notification-item";
-    notificationElement.innerHTML = `${notificationText} <i data-action="removeNotification" class="fa-regular fa-circle-xmark"></i></i>`;
+    notificationElement.innerHTML = `${notificationText} <i data-action="removeNotification" class="fa-regular fa-circle-xmark remove-notification"></i></i>`;
 
     notificationsListContainer.appendChild(notificationElement);
     notificationCount++;

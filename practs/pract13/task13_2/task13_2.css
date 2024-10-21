@@ -62,7 +62,7 @@ body {
   height: calc-size(auto);
   border-radius: 10px;
   padding: 0.8rem 0;
-  transition: height 0.3s ease;
+  transition: height 0.4s ease;
   counter-reset: item-place;
 }
 .notification-container .notifications-list-container .notification-item {
@@ -75,7 +75,7 @@ body {
   counter-increment: item-place;
   overflow: hidden;
   cursor: pointer;
-  animation: notification-appearing-animation 0.3s ease-in-out;
+  animation: notification-appearing-animation 0.4s ease-in-out;
   transition: transform 0.2s ease;
 }
 @keyframes notification-appearing-animation {
@@ -102,13 +102,21 @@ body {
   border-radius: 50%;
   font-weight: 500;
 }
+.notification-container .notifications-list-container .notification-item .remove-notification {
+  margin-left: auto;
+  font-size: 1.2rem;
+  opacity: 0;
+  pointer-events: none;
+}
 .notification-container .notifications-list-container .notification-item:hover {
   color: white;
   background-color: #b612fd;
   transform: scale(1.1);
 }
-.notification-container .notifications-list-container .notification-item:hover i {
+.notification-container .notifications-list-container .notification-item:hover .remove-notification {
+  opacity: 1;
   color: white;
+  pointer-events: all;
 }
 .notification-container .notifications-list-container .notification-item.in-removal {
   animation: notification-disappearing-animation 0.4s ease forwards;
@@ -132,11 +140,6 @@ body {
   height: 4rem;
   width: 14rem;
   z-index: -1;
-}
-.notification-container .notifications-list-container i {
-  margin-left: auto;
-  color: red;
-  font-size: 1.2rem;
 }
 .notification-container:hover .notifications-list-container::before {
   visibility: visible;
