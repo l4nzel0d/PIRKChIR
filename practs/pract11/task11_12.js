@@ -131,6 +131,7 @@ cartTabHTML.addEventListener('click', (event) => {
 
 const askToConfirmClearCart = () => {
     if (cart.totalItemCount == 0) return;
+    document.body.style.overflow = 'hidden';
     overlayElement.classList.remove("hidden");
     clearCartConfirmationContainer.classList.remove("hidden");
 }
@@ -150,6 +151,7 @@ clearCartConfirmationContainer.addEventListener('click', (event) => {
 const hideConfirmClearCart = () => {
     overlayElement.classList.add("hidden");
     clearCartConfirmationContainer.classList.add("hidden");
+    document.body.style.overflow = 'auto';
 }
 
 
