@@ -60,7 +60,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-.icon-container {
+.icon-link-container {
     cursor: pointer;
     height: var(--delay-factorcon-container-diameter);
     width: var(--delay-factorcon-container-diameter);
@@ -79,13 +79,21 @@ footer {
     z-index: 0;
 }
 
-.icon {
+.icon-link {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-img {
     width: 50%;
     object-fit: cover;
     filter: brightness(0) invert();
 }
 
-.icon-container::before {
+.icon-link-container::before {
     position: absolute;
     content: "";
     top: 0;
@@ -103,7 +111,7 @@ footer {
     z-index: -2;
 }
 
-.icon-container::after {
+.icon-link-container::after {
     position: absolute;
     content: "";
     top: 0;
@@ -117,11 +125,11 @@ footer {
 
 }
 
-.icon-container:hover {
+.icon-link-container:hover {
     transform: translateY(-20%);
 }
 
-.icon-container:hover::after {
+.icon-link-container:hover::after {
     transform: translateY(100%);
 }
 
