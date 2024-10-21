@@ -38,5 +38,20 @@ notificationIconElement.addEventListener('click', () => {
     }, 10000);
 })
 
+
 startNotificationCreatorTimer();
 updateNotificationCount();
+
+const notificationStopStartButton = document.getElementById('notification-stop-start-button');
+notificationStopStartButton.addEventListener('click', () => {
+    if (notificationStopStartButton.dataset.action == "toStop") {
+        clearInterval(timerNotificationCreator);
+        notificationStopStartButton.dataset.action = "toStart";
+        notificationStopStartButton.textContent = "Start Notification Creation";
+    }
+    else {
+        startNotificationCreatorTimer();
+        notificationStopStartButton.dataset.action = "toStop";
+        notificationStopStartButton.textContent = "Stop Notification Creation";
+    }
+})

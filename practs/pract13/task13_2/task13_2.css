@@ -9,6 +9,11 @@
 body {
   background-color: #20232a;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
 .notification-container {
@@ -96,6 +101,7 @@ body {
   font-weight: 500;
 }
 .notification-container .notifications-list-container .notification-item:hover {
+  color: white;
   background-color: #b612fd;
   transform: scale(1.1);
 }
@@ -115,4 +121,19 @@ body {
 .notification-container:hover .notifications-list-container,
 .notification-container .notification-container:hover {
   visibility: visible;
+}
+
+#notification-stop-start-button {
+  cursor: pointer;
+  padding: 0.5rem 0.8rem;
+  font-size: 1.4rem;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+}
+#notification-stop-start-button:hover {
+  transform: scale(1.01);
+}
+#notification-stop-start-button:active {
+  transform: scale(0.99);
 }/*# sourceMappingURL=task13_2.css.map */

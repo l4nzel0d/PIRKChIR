@@ -19,6 +19,11 @@ $notification-appearing-timing: .3s;
 body {
     background-color: $body-background-color;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
 }
 
 .notification-container {
@@ -136,6 +141,7 @@ body {
             }
 
             &:hover {
+                color: white;
                 background-color: $notification-primary-color;
                 transform: scale(1.1);
             }
@@ -163,5 +169,22 @@ body {
     &:hover .notifications-list-container,
     .notification-container:hover {
         visibility: visible;
+    }
+}
+
+#notification-stop-start-button {
+    cursor: pointer;
+    padding: .5rem .8rem;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+
+    &:hover {
+        transform: scale(1.01);
+    }
+
+    &:active {
+        transform: scale(.99);
     }
 }
