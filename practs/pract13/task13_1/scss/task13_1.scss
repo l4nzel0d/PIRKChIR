@@ -1,0 +1,15 @@
+body {
+    min-height: 100vh;
+
+    #image-container {
+        background-color: red;
+        overflow: visible;
+        width: 500px;
+        height: 200px;
+    }
+
+    #coordinates {
+        position: fixed;
+        bottom: 1rem;
+    }
+}
