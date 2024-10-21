@@ -208,7 +208,7 @@ body.showCart .cartTab {
   right: -400px;
   bottom: 0;
   grid-template-rows: 70px 1fr auto 70px;
-  transition: 0.5s;
+  transition: all 0.5s ease;
 }
 .cartTab .firstRow {
   display: flex;
@@ -322,21 +322,43 @@ body.showCart .cartTab {
   background-color: rgba(0, 0, 0, 0.9);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  opacity: 1;
+  animation: page-overlay-appearing-animation 0.2s ease both;
+}
+@keyframes page-overlay-appearing-animation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 .pageOverlay.hidden {
   display: none;
+  opacity: 0;
 }
 
 .clearCartConfirmationContainer {
+  display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: #332e29;
-  display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+  animation: clear-cart-confirmation-container-appearing-animation 0.4s ease both;
+}
+@keyframes clear-cart-confirmation-container-appearing-animation {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.7);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 .clearCartConfirmationContainer.hidden {
   display: none;
