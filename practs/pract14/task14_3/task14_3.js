@@ -4,7 +4,6 @@ let allListItemsOnPage = document.querySelectorAll('li');
 
 
 document.addEventListener('click', (event) => {
-    console.log('click triggered');
     let listItem = event.target.closest('li');
     let list = event.target.closest('ul');
     let listItems;
@@ -36,7 +35,6 @@ function removeSelectedFromEachElement(arrayOfItems) {
 }
 
 document.addEventListener('mousedown', (event) => {
-    console.log("mousedown triggered");
     event.preventDefault();
     if (event.button !== 0) return;
 
@@ -45,7 +43,7 @@ document.addEventListener('mousedown', (event) => {
     startY = event.clientY;
 
     allListItemsOnPage.forEach(item => {
-        item.dataset.wasSelected = item.classList.contains('selected');
+        item.dataset.wasInMarquee = false;
     })
 
     selectionBox = document.createElement('div');
@@ -60,8 +58,6 @@ document.addEventListener('mousedown', (event) => {
 });
 
 document.addEventListener('mousemove', (event) => {
-    // console.log('mousemove triggered');
-    // console.log(`isSelecting: ${isSelecting}`);
     if (!isSelecting) return;
 
     let currentX = event.clientX;
@@ -77,16 +73,13 @@ document.addEventListener('mousemove', (event) => {
     selectionBox.style.top = `${Math.min(startY, currentY)}px`;
 
     allListItemsOnPage.forEach((item) => {
+        const wasInMarquee = (item.dataset.wasInMarquee === "true");
         const isInSelectionBox = isElementInSelectionBox(item, selectionBox);
-        const wasSelected = item.dataset.wasSelected === 'true';
-
+        
         if (event.ctrlKey) {
-            if (isInSelectionBox && !wasSelected) {
-                item.classList.add('selected');
-                item.dataset.wasSelected = 'true'; // Update state
-            } else if (!isInSelectionBox && wasSelected) {
-                item.classList.remove('selected');
-                item.dataset.wasSelected = 'false'; // Update state
+            if (wasInMarquee != isInSelectionBox) {
+                item.classList.toggle('selected');
+                item.dataset.wasInMarquee = isInSelectionBox;
             }
         } else {
             item.classList.toggle('selected', isInSelectionBox);
@@ -95,7 +88,10 @@ document.addEventListener('mousemove', (event) => {
 });
 
 document.addEventListener('mouseup', (event) => {
-    console.log('mouseup triggerd');
+    allListItemsOnPage.forEach(item => {
+        item.dataset.wasInMarquee = false;
+    })
+
     isSelecting = false;
     if (selectionBox) {
         selectionBox.remove();
@@ -103,7 +99,6 @@ document.addEventListener('mouseup', (event) => {
 });
 
 function isElementInSelectionBox(element, box) {
-    console.log("isElementInSelectionBox triggered")
     let elementRect = element.getBoundingClientRect();
     let boxRect = box.getBoundingClientRect();
 
